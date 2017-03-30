@@ -16,7 +16,7 @@ public class KeyboardUtil {
         imeService = imeService1;
         keyboardCapitalLetter = new Keyboard(imeService.getApplicationContext(), R.xml.keyboard_capital_letter);
         keyboardNumber = new Keyboard(imeService.getApplicationContext(), R.xml.keyboard_number);
-        keyboardSmallLetter = new Keyboard(imeService.getApplicationContext(), R.xml.keyboard_number);
+        keyboardSmallLetter = new Keyboard(imeService.getApplicationContext(), R.xml.keyboard_small_letter);
         keyboardView.setKeyboard(keyboardSmallLetter);
         keyboardView.setEnabled(true);
         keyboardView.setPreviewEnabled(true);
@@ -55,11 +55,13 @@ public class KeyboardUtil {
         @Override
         public void onKey(int primaryCode, int[] keyCodes) {
             switch (primaryCode) {
-                case 200:
-                    keyboardView.setKeyboard(keyboardCapitalLetter);
-                    break;
-                case 300:
-                    keyboardView.setKeyboard(keyboardSmallLetter);
+                case Keyboard.KEYCODE_SHIFT:
+                    if(keyboardView.getKeyboard() == keyboardCapitalLetter) {
+                        keyboardView.setKeyboard(keyboardSmallLetter);
+                    }else {
+                        keyboardView.setKeyboard(keyboardCapitalLetter);
+                    }
+
                     break;
                 case Keyboard.KEYCODE_DELETE:
                     imeService.deleteText();
@@ -70,7 +72,7 @@ public class KeyboardUtil {
                 case -2:
                     keyboardView.setKeyboard(keyboardNumber);
                     break;
-                case 1000:
+                case 100:
                     keyboardView.setKeyboard(keyboardSmallLetter);
                     break;
 

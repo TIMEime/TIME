@@ -17,8 +17,8 @@
              android:keyLabel="P" />
     </Row>
     <Row>
-        <Key android:horizontalGap="4.999995%p" android:codes="97"
-             android:keyEdgeFlags="left" android:keyLabel="a" />
+        <Key android:horizontalGap="4.999995%p" android:codes="65"
+             android:keyEdgeFlags="left" android:keyLabel="A" />
         <Key android:codes="83" android:keyLabel="S" />
         <Key android:codes="68" android:keyLabel="D" />
         <Key android:codes="70" android:keyLabel="F" />
