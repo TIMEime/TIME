@@ -31,16 +31,16 @@
     </Row>
 
     <Row>
-        <Key  android:codes="50"
+        <Key  android:codes="123"
             android:keyEdgeFlags="left" android:isModifier="true"
-            android:isSticky="true" android:keyLabel="1" />
-        <Key android:codes="122" android:keyLabel="z" />
-        <Key android:codes="120" android:keyLabel="x" />
-        <Key android:codes="99" android:keyLabel="c" />
-        <Key android:codes="118" android:keyLabel="v" />
-        <Key android:codes="98" android:keyLabel="b" />
-        <Key android:codes="110" android:keyLabel="n" />
-        <Key android:codes="109" android:keyLabel="m" />
+            android:isSticky="true" android:keyLabel="{" />
+        <Key android:codes="125" android:keyLabel="}" />
+        <Key android:codes="126" android:keyLabel="~" />
+        <Key android:codes="91" android:keyLabel="[" />
+        <Key android:codes="93" android:keyLabel="]" />
+        <Key android:codes="95" android:keyLabel="_" />
+        <Key android:codes="58" android:keyLabel=":" />
+        <Key android:codes="62" android:keyLabel=">" />
         <Key android:keyWidth="14.999998%p" android:codes="-5"
             android:keyEdgeFlags="right" android:isRepeatable="true"
             android:keyIcon="@drawable/sym_keyboard_delete" />
@@ -48,7 +48,7 @@
 
 
     <Row android:rowEdgeFlags="bottom">
-        <Key android:keyWidth="20.000004%p" android:codes="100"
+        <Key android:keyWidth="20.000004%p" android:codes="10000"
             android:keyLabel="abc" />
         <Key android:keyWidth="14.999998%p" android:codes="44"
             android:keyLabel="," />
