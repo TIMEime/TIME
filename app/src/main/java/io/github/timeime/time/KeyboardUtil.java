@@ -61,7 +61,6 @@ public class KeyboardUtil {
                     }else {
                         keyboardView.setKeyboard(keyboardCapitalLetter);
                     }
-
                     break;
                 case Keyboard.KEYCODE_DELETE:
                     imeService.deleteText();
@@ -72,13 +71,11 @@ public class KeyboardUtil {
                 case -2:
                     keyboardView.setKeyboard(keyboardNumber);
                     break;
-                case 100:
+                case 10000:
                     keyboardView.setKeyboard(keyboardSmallLetter);
                     break;
-
                 default:
                     imeService.commitText(Character.toString((char) primaryCode));
-
                     break;
             }
         }
