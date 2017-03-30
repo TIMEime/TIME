@@ -29,7 +29,7 @@
         <Key android:codes="41" android:keyEdgeFlags="right"
             android:keyLabel=")" />
     </Row>
-
+//2
     <Row>
         <Key  android:codes="123"
             android:keyEdgeFlags="left" android:isModifier="true"
