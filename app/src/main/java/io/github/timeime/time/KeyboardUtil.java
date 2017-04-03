@@ -76,6 +76,8 @@ public class KeyboardUtil {
                     break;
                 default:
                     imeService.commitText(Character.toString((char) primaryCode));
+                    imeService.setCandidatesViewShown(true);
+                    imeService.onKey(Character.toString((char) primaryCode));
                     break;
             }
         }
