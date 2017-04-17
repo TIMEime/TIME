@@ -4,7 +4,8 @@ import android.inputmethodservice.Keyboard;
 import android.inputmethodservice.KeyboardView;
 import android.inputmethodservice.KeyboardView.OnKeyboardActionListener;
 
-public class KeyboardUtil {
+public class KeyboardUtil  {
+
     private KeyboardView keyboardView;
     private ImeService imeService;
     private Keyboard keyboardSmallLetter, keyboardNumber, keyboardCapitalLetter;
@@ -69,6 +70,7 @@ public class KeyboardUtil {
                     imeService.hideInputMethod();
                     break;
                 case -2:
+
                     keyboardView.setKeyboard(keyboardNumber);
                     break;
                 case 10000:
