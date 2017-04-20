@@ -14,7 +14,6 @@ public class ImeService extends InputMethodService {
     private Hashtable<String, List<String>> data; // 词典数据
     private KeyboardView mkeyView;
     private CandidateView mCandView;
-    MainActivity dialog;
     @Override
     public View onCreateInputView() {
         View mkeyView = LayoutInflater.from(this).inflate(
@@ -45,7 +44,6 @@ public class ImeService extends InputMethodService {
 
     public void pickSuggestionManually(int mSelectedIndex){
         getCurrentInputConnection().commitText(suggestionlist.get(mSelectedIndex), 0); // 往输入框输出内容
-        dialog.listDialog.show();
         setCandidatesViewShown(false); // 隐藏 CandidatesView
     }
     public void onInitializeInterface() { //InputMethodService在启动时，系统会调用该方法，具体内容下回再表
