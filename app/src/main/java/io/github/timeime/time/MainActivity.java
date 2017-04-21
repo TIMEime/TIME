@@ -1,42 +1,32 @@
 package io.github.timeime.time;
 
-import android.content.DialogInterface;
+import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
-import android.widget.Toast;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 
 import java.util.ArrayList;
-import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
-    private List<String> lunch;
-    AlertDialog.Builder listDialog;
+public class MainActivity extends Activity {
+    private ArrayList<DB> mProducts = new ArrayList<DB>();
+    private EditText editText;
+    private Button button;
+    DBHelper dbHelper = new DBHelper(this, null, null, 1);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        initData();
-        listDialog();
-        listDialog.show();
-    }
-    public void initData() {
-        lunch = new ArrayList<>();
-        lunch.add("1");
-        lunch.add("2");
-        lunch.add("3");
-        lunch.add("4");
-        lunch.add("5");
-        lunch.add("6");
-    }
-    public void listDialog(){
-        listDialog =new AlertDialog.Builder(MainActivity.this)
-                .setItems(lunch.toArray(new String[lunch.size()]), new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        String name = lunch.get(which);
-                        Toast.makeText(getApplicationContext(), "123" + name, Toast.LENGTH_SHORT).show();
-                    }
-                });
+        button=(Button)findViewById (R.id.button);
+        editText=(EditText)findViewById (R.id.edit_text);
+        button.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DB newDB = new DB(editText.getText().toString());
+                dbHelper.addProduct(newDB);
+            }
+        });
+        // 寫入資料
     }
 }
