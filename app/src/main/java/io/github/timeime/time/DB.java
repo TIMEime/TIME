@@ -3,6 +3,7 @@ package io.github.timeime.time;
 public class DB {
     private int id;
     private String name;
+
     public DB() {
     }
 
@@ -30,5 +31,4 @@ public class DB {
     public String getProductName() {
         return this.name;
     }
-
 }
