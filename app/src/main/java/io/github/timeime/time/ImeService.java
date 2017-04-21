@@ -10,10 +10,11 @@ import java.util.Hashtable;
 import java.util.List;
 
 public class ImeService extends InputMethodService {
-    private List<String>suggestionlist; // 当前候选词表
-    private Hashtable<String, List<String>> data; // 词典数据
+    private List<String>suggestionlist; //當前候選詞表
+    private Hashtable<String,List<String>> data; //辭典數據
     private KeyboardView mkeyView;
     private CandidateView mCandView;
+
     @Override
     public View onCreateInputView() {
         View mkeyView = LayoutInflater.from(this).inflate(
