@@ -4,11 +4,15 @@ import android.inputmethodservice.Keyboard;
 import android.inputmethodservice.KeyboardView;
 import android.inputmethodservice.KeyboardView.OnKeyboardActionListener;
 
-public class KeyboardUtil {
+public class KeyboardUtil  {
+
     private KeyboardView keyboardView;
     private ImeService imeService;
     private Keyboard keyboardSmallLetter, keyboardNumber, keyboardCapitalLetter;
+<<<<<<< HEAD
     MainActivity llloo;
+=======
+>>>>>>> 4a5585e5ecf11f6edf1b2921f158b6279d1ac3db
     public KeyboardUtil(ImeService imeService1, KeyboardView keyboardView1) {
         super();
         keyboardView = keyboardView1;
@@ -77,6 +81,8 @@ public class KeyboardUtil {
                     break;
                 default:
                     imeService.commitText(Character.toString((char) primaryCode));
+                    imeService.setCandidatesViewShown(true);
+                    imeService.onKey(Character.toString((char) primaryCode));
                     break;
             }
         }
