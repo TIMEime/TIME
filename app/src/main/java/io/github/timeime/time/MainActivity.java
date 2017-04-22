@@ -11,6 +11,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends Activity {
     private EditText editText;
+    private EditText editText2;
     private Button addButton;
     private Button deleteButton;
     private ListView listView;
@@ -24,6 +25,7 @@ public class MainActivity extends Activity {
         addButton=(Button)findViewById (R.id.add_button);
         deleteButton=(Button)findViewById (R.id.delete_button);
         editText=(EditText)findViewById (R.id.edit_text);
+        editText2=(EditText)findViewById (R.id.edit_text2);
         listView = (ListView) findViewById (R.id.main_list);
 
         mDBs = dbHelper.getAll();
@@ -34,9 +36,10 @@ public class MainActivity extends Activity {
             //存入資料
             @Override
             public void onClick(View view) {
-                DB mDB = new DB(editText.getText().toString());
+                DB mDB = new DB(editText.getText().toString(),editText2.getText().toString());
                 dbHelper.addData(mDB);
                 editText.setText("");
+                editText2.setText("");
                 updateAdapter();
             }
         });

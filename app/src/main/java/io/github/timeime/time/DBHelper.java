@@ -10,10 +10,11 @@ import android.database.sqlite.SQLiteOpenHelper;
 import java.util.ArrayList;
 
 public class DBHelper extends SQLiteOpenHelper {
-    private static final int DATABASE_VERSION = 1;// 資料庫版本，資料結構改變的時候要更改這個數字，通常是加一
+    private static final int DATABASE_VERSION = 4;// 資料庫版本，資料結構改變的時候要更改這個數字，通常是加一
     private static final String DATABASE_NAME = "TIME.db";// 資料庫名稱
     private static final String TABLE_NAME = "ACCOUNT";//表格名稱
-    public static final String KEY_ID = "_ID";//欄位名稱
+    public static final String ID_COLUMN = "_ID";//欄位名稱
+    public static final String NAME_COLUMN = "NAME";//欄位名稱
     public static final String PASSWORD_COLUMN= "DATA";//欄位名稱
 
     //建構子，都是一樣的格式不用改他
@@ -25,7 +26,8 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         final String CREATE_PRODUCTS_TABLE = "CREATE TABLE " + TABLE_NAME + "("
-                + KEY_ID + " INTEGER PRIMARY KEY,"
+                + ID_COLUMN + " INTEGER PRIMARY KEY,"
+                + NAME_COLUMN + "TEXT"
                 + PASSWORD_COLUMN + " TEXT"
                 + ")";
         db.execSQL(CREATE_PRODUCTS_TABLE);
@@ -42,6 +44,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public void addData(DB mDB) {
         ContentValues values = new ContentValues();
         values.put(PASSWORD_COLUMN, mDB.getData());
+        values.put(NAME_COLUMN, mDB.getName());
         SQLiteDatabase db = this.getWritableDatabase();
         db.insert(TABLE_NAME, null, values);
         db.close();
@@ -95,7 +98,7 @@ public class DBHelper extends SQLiteOpenHelper {
         DB mDB = new DB();
         if (cursor.moveToFirst()) {
             mDB.setID(Integer.parseInt(cursor.getString(0)));
-            db.delete(TABLE_NAME, KEY_ID + " = ?",new String[] { String.valueOf(mDB.getID()) });
+            db.delete(TABLE_NAME, ID_COLUMN + " = ?",new String[] { String.valueOf(mDB.getID()) });
             cursor.close();
             result = true;
         }

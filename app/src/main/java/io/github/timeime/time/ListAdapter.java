@@ -38,7 +38,9 @@ public class ListAdapter extends BaseAdapter {
         View vi = convertView;
         vi = inflater.inflate(R.layout.item_list, null);
         TextView text = (TextView) vi.findViewById(R.id.text_list);
+        TextView text2 = (TextView) vi.findViewById(R.id.text_list22);
         text.setText(mDBs.get(position).getData());
+        text2.setText(mDBs.get(position).getName());
         return vi;
     }
 }

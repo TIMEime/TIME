@@ -3,13 +3,13 @@ package io.github.timeime.time;
 public class DB {
     private int id;
     private String data;
-
+    private String name;
     public DB() {
     }
 
-    public DB(int id, String data) {
-        this.id = id;
+    public DB( String data,String name) {
         this.data = data;
+        this.name=name;
     }
 
     public DB(String data) {
@@ -31,5 +31,12 @@ public class DB {
 
     public String getData() {
         return this.data;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return this.name;
     }
 }
