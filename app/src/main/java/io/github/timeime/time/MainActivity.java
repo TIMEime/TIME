@@ -13,15 +13,9 @@ public class MainActivity extends Activity {
     private EditText editText;
     private Button button;
     private Button button2;
-    DBTask dbtask ;
     private ListView listView;
     private ArrayList<DB> mDBs = new ArrayList<DB>();
-
-    public void updateAdapter(){
-        mDBs = dbtask.getAll();
-        ListAdapter adapter = new ListAdapter(this, mDBs);
-        listView.setAdapter(adapter);
-    }
+    public  DBHelper dbHelper = new DBHelper(this, null, null, 1);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,9 +25,8 @@ public class MainActivity extends Activity {
         button2=(Button)findViewById (R.id.button2);
         editText=(EditText)findViewById (R.id.edit_text);
         listView = (ListView) findViewById (R.id.main_list);
-        dbtask=new DBTask(this);
 
-        mDBs = dbtask.getAll();
+        mDBs = dbHelper.getAll();
         ListAdapter adapter = new ListAdapter(this, mDBs);
         listView.setAdapter(adapter);
 
@@ -42,7 +35,7 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View view) {
                 DB mDB = new DB(editText.getText().toString());
-                dbtask.addData(mDB);
+                dbHelper.addData(mDB);
                 editText.setText("");
                 updateAdapter();
             }
@@ -52,10 +45,16 @@ public class MainActivity extends Activity {
             //刪除資料
             @Override
             public void onClick(View view) {
-                dbtask.deleteData(editText.getText().toString());
+                dbHelper.deleteData(editText.getText().toString());
                 editText.setText("");
                 updateAdapter();
             }
         });
+    }
+
+    public void updateAdapter(){
+        mDBs = dbHelper.getAll();
+        ListAdapter adapter = new ListAdapter(this, mDBs);
+        listView.setAdapter(adapter);
     }
 }

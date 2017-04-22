@@ -2,18 +2,18 @@ package io.github.timeime.time;
 
 public class DB {
     private int id;
-    private String name;
+    private String data;
 
     public DB() {
     }
 
-    public DB(int id, String productname) {
+    public DB(int id, String data) {
         this.id = id;
-        this.name = productname;
+        this.data = data;
     }
 
-    public DB(String productname) {
-        this.name = productname;
+    public DB(String data) {
+        this.data = data;
     }
 
     public void setID(int id) {
@@ -24,11 +24,11 @@ public class DB {
         return this.id;
     }
 
-    public void setProductName(String productname) {
-        this.name = productname;
+    public void setData(String data) {
+        this.data = data;
     }
 
-    public String getProductName() {
-        return this.name;
+    public String getData() {
+        return this.data;
     }
 }

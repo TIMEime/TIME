@@ -11,13 +11,13 @@ import java.util.ArrayList;
 
 public class ListAdapter extends BaseAdapter {
 
-    private Context mContext;
+    private Context context;
     private static LayoutInflater inflater = null;
     private ArrayList<DB> mDBs;
 
     public ListAdapter(Context c, ArrayList<DB> arrayProducts) {
-        mContext = c;
-        inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        context = c;
+        inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         mDBs = arrayProducts;
     }
 
@@ -39,7 +39,7 @@ public class ListAdapter extends BaseAdapter {
 
         vi = inflater.inflate(R.layout.item_list, null);
         TextView text = (TextView) vi.findViewById(R.id.text_list);
-        text.setText(mDBs.get(position).getProductName());
+        text.setText(mDBs.get(position).getData());
 
         return vi;
     }
