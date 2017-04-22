@@ -14,7 +14,7 @@ public class DBHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "TIME.db";// 資料庫名稱
     private static final String TABLE_NAME = "ACCOUNT";//表格名稱
     public static final String KEY_ID = "_ID";//欄位名稱
-    public static final String PASSWORD_COLUMN= "NAME";//欄位名稱
+    public static final String PASSWORD_COLUMN= "DATA";//欄位名稱
 
     //建構子，都是一樣的格式不用改他
     public DBHelper(Context context, String name, CursorFactory factory,int version) {
@@ -103,6 +103,7 @@ public class DBHelper extends SQLiteOpenHelper {
         return result;
     }
 }
+
 
 
 

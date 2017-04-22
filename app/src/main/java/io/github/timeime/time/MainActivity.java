@@ -11,8 +11,8 @@ import java.util.ArrayList;
 
 public class MainActivity extends Activity {
     private EditText editText;
-    private Button button;
-    private Button button2;
+    private Button addButton;
+    private Button deleteButton;
     private ListView listView;
     private ArrayList<DB> mDBs = new ArrayList<DB>();
     public  DBHelper dbHelper = new DBHelper(this, null, null, 1);
@@ -21,8 +21,8 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        button=(Button)findViewById (R.id.button);
-        button2=(Button)findViewById (R.id.button2);
+        addButton=(Button)findViewById (R.id.add_button);
+        deleteButton=(Button)findViewById (R.id.delete_button);
         editText=(EditText)findViewById (R.id.edit_text);
         listView = (ListView) findViewById (R.id.main_list);
 
@@ -30,7 +30,7 @@ public class MainActivity extends Activity {
         ListAdapter adapter = new ListAdapter(this, mDBs);
         listView.setAdapter(adapter);
 
-        button.setOnClickListener(new Button.OnClickListener() {
+        addButton.setOnClickListener(new Button.OnClickListener() {
             //存入資料
             @Override
             public void onClick(View view) {
@@ -41,7 +41,7 @@ public class MainActivity extends Activity {
             }
         });
 
-        button2.setOnClickListener(new Button.OnClickListener() {
+        deleteButton.setOnClickListener(new Button.OnClickListener() {
             //刪除資料
             @Override
             public void onClick(View view) {

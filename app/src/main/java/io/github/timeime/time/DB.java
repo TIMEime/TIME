@@ -24,6 +24,7 @@ public class DB {
         return this.id;
     }
 
+
     public void setData(String data) {
         this.data = data;
     }
