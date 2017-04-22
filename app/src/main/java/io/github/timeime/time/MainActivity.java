@@ -5,14 +5,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ListView;
 
 import java.util.ArrayList;
 
 public class MainActivity extends Activity {
     private EditText editText;
-    private Button button;
-    private Button button2;
+    private ImageButton button;
+    private ImageButton button2;
     private ListView listView;
     private ArrayList<DB> mDBs = new ArrayList<DB>();
     public  DBHelper dbHelper = new DBHelper(this, null, null, 1);
@@ -21,8 +22,8 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        button=(Button)findViewById (R.id.button);
-        button2=(Button)findViewById (R.id.button2);
+        button=(ImageButton)findViewById (R.id.button);
+        button2=(ImageButton)findViewById (R.id.button2);
         editText=(EditText)findViewById (R.id.edit_text);
         listView = (ListView) findViewById (R.id.main_list);
 
