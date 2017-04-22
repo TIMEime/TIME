@@ -56,7 +56,6 @@ public class KeyboardUtil  {
         public void onKey(int primaryCode, int[] keyCodes) {
             switch (primaryCode) {
                 case Keyboard.KEYCODE_SHIFT:
-                    imeService.findText();
                     if(keyboardView.getKeyboard() == keyboardCapitalLetter) {
                         keyboardView.setKeyboard(keyboardSmallLetter);
                     }else {
