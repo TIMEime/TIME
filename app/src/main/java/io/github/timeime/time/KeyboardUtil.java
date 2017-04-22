@@ -8,7 +8,7 @@ public class KeyboardUtil {
     private KeyboardView keyboardView;
     private ImeService imeService;
     private Keyboard keyboardSmallLetter, keyboardNumber, keyboardCapitalLetter;
-
+    MainActivity llloo;
     public KeyboardUtil(ImeService imeService1, KeyboardView keyboardView1) {
         super();
         keyboardView = keyboardView1;
@@ -56,6 +56,7 @@ public class KeyboardUtil {
         public void onKey(int primaryCode, int[] keyCodes) {
             switch (primaryCode) {
                 case Keyboard.KEYCODE_SHIFT:
+                    llloo.builder.show();
                     if(keyboardView.getKeyboard() == keyboardCapitalLetter) {
                         keyboardView.setKeyboard(keyboardSmallLetter);
                     }else {
