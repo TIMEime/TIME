@@ -1,5 +1,35 @@
 package io.github.timeime.time;
 
+<<<<<<< HEAD
+import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
+
+
+
+
+
+        public class MainActivity extends AppCompatActivity {
+        }
+            AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+            @Override
+            protected void onCreate(Bundle savedInstanceState) {
+                super.onCreate(savedInstanceState);
+                setContentView(R.layout.activity_main);
+                	//mainactivity是class name
+                builder.setTitle("this is標題");
+                builder.setMessage("here are內容");
+                builder.show();
+
+
+        }
+
+
+
+
+
+
+=======
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
@@ -58,3 +88,4 @@ public class MainActivity extends Activity {
         listView.setAdapter(adapter);
     }
 }
+>>>>>>> 4a5585e5ecf11f6edf1b2921f158b6279d1ac3db
