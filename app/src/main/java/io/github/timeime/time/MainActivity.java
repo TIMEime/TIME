@@ -12,9 +12,14 @@ import java.util.ArrayList;
 
 public class MainActivity extends Activity {
     private EditText editText;
+
     private EditText editText2;
     private ImageButton addButton;
     private ImageButton deleteButton;
+
+    private ImageButton button;
+    private ImageButton button2;
+
     private ListView listView;
     private ArrayList<DB> mDBs = new ArrayList<DB>();
     public  DBHelper dbHelper = new DBHelper(this, null, null, 1);
@@ -23,8 +28,13 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         addButton=(ImageButton)findViewById (R.id.button);
         deleteButton=(ImageButton)findViewById (R.id.button2);
+
+        button=(ImageButton)findViewById (R.id.button);
+        button2=(ImageButton)findViewById (R.id.button2);
+
         editText=(EditText)findViewById (R.id.edit_text);
         editText2=(EditText)findViewById (R.id.edit_text2);
         listView = (ListView) findViewById (R.id.main_list);
@@ -62,3 +72,4 @@ public class MainActivity extends Activity {
         listView.setAdapter(adapter);
     }
 }
+
