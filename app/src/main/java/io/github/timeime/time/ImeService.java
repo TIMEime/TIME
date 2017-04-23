@@ -14,6 +14,7 @@ public class ImeService extends InputMethodService {
     private Hashtable<String,List<String>> data; //辭典數據
     private KeyboardView mkeyView;
     private CandidateView mCandView;
+    public  DBHelper dbHelper = new DBHelper(this, null, null, 1);
 
     @Override
     public View onCreateInputView() {
@@ -28,6 +29,11 @@ public class ImeService extends InputMethodService {
         mCandView = new CandidateView(this);
         mCandView.setService(this);
         return mCandView;
+    }
+
+    public void findData(){
+        String data=dbHelper.findData("123").getData();
+        getCurrentInputConnection().commitText(data, 0);
     }
 
     public void commitText(String data) {

@@ -7,6 +7,39 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="#FFFFBB"
+    tools:context=".MainActivity" >
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="資料名稱: "
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="資料內容: "
+        android:textSize="24sp"
+        android:layout_below="@+id/edit_text"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="12dp" />
+    <EditText
+        android:id="@+id/edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/name"
+        android:layout_toRightOf="@id/name"
+        android:layout_alignBottom="@+id/name" />
+    <EditText
+        android:id="@+id/edit_text2"
+        android:layout_below="@+id/edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/data"
+        android:layout_alignBottom="@+id/data"
+
     android:background="#FFFFBB	"
     tools:context=".MainActivity" >
     <TextView
@@ -21,6 +54,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@id/account"
+
         android:paddingLeft="6sp" />
 
 
@@ -28,9 +62,35 @@
         android:id="@+id/main_list"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
+
+        android:paddingTop="33sp"
+        android:layout_below="@+id/button"
+        android:layout_alignParentStart="true" />
+    <TextView
+        android:id="@+id/name_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10sp"
+        android:text="資料名稱"
+        android:textSize="24sp"
+        android:layout_below="@+id/button"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="12dp" />
+    <TextView
+        android:id="@+id/data_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="資料內容"
+        android:textSize="24sp"
+        android:layout_below="@+id/button2"
+        android:layout_alignParentEnd="true"
+        android:paddingRight="10sp"
+        android:layout_marginTop="12dp" />
+
         android:layout_marginTop="130dp"
         android:layout_below="@+id/button"
         android:layout_alignParentStart="true" />
+
 
     <ImageButton
         android:src="@drawable/button1"
@@ -38,10 +98,16 @@
         android:id="@+id/button"
         android:layout_width="155dp"
         android:layout_height="53dp"
+
+        android:layout_marginTop="62dp"
+        android:layout_below="@+id/edit_text"
+        android:layout_alignParentStart="true" />
+
         android:layout_marginTop="46dp"
         android:layout_marginEnd="12dp"
         android:layout_below="@+id/edit_text"
         android:layout_toStartOf="@+id/button2" />
+
 
     <ImageButton
         android:src="@drawable/button2"
@@ -51,6 +117,7 @@
         android:layout_height="55dp"
         android:layout_above="@+id/main_list"
         android:layout_alignParentEnd="true" />
+
 
 
 </RelativeLayout>

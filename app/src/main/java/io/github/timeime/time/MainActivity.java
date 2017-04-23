@@ -12,8 +12,14 @@ import java.util.ArrayList;
 
 public class MainActivity extends Activity {
     private EditText editText;
+
+    private EditText editText2;
+    private ImageButton addButton;
+    private ImageButton deleteButton;
+
     private ImageButton button;
     private ImageButton button2;
+
     private ListView listView;
     private ArrayList<DB> mDBs = new ArrayList<DB>();
     public  DBHelper dbHelper = new DBHelper(this, null, null, 1);
@@ -22,27 +28,34 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        addButton=(ImageButton)findViewById (R.id.button);
+        deleteButton=(ImageButton)findViewById (R.id.button2);
+
         button=(ImageButton)findViewById (R.id.button);
         button2=(ImageButton)findViewById (R.id.button2);
+
         editText=(EditText)findViewById (R.id.edit_text);
+        editText2=(EditText)findViewById (R.id.edit_text2);
         listView = (ListView) findViewById (R.id.main_list);
 
         mDBs = dbHelper.getAll();
         ListAdapter adapter = new ListAdapter(this, mDBs);
         listView.setAdapter(adapter);
 
-        button.setOnClickListener(new Button.OnClickListener() {
+        addButton.setOnClickListener(new Button.OnClickListener() {
             //存入資料
             @Override
             public void onClick(View view) {
-                DB mDB = new DB(editText.getText().toString());
+                DB mDB = new DB(editText.getText().toString(),editText2.getText().toString());
                 dbHelper.addData(mDB);
                 editText.setText("");
+                editText2.setText("");
                 updateAdapter();
             }
         });
 
-        button2.setOnClickListener(new Button.OnClickListener() {
+        deleteButton.setOnClickListener(new Button.OnClickListener() {
             //刪除資料
             @Override
             public void onClick(View view) {

@@ -36,12 +36,11 @@ public class ListAdapter extends BaseAdapter {
     // create a new ImageView for each item referenced by the Adapter
     public View getView(int position, View convertView, ViewGroup parent) {
         View vi = convertView;
-
         vi = inflater.inflate(R.layout.item_list, null);
         TextView text = (TextView) vi.findViewById(R.id.text_list);
+        TextView text2 = (TextView) vi.findViewById(R.id.text_list22);
         text.setText(mDBs.get(position).getData());
-
+        text2.setText(mDBs.get(position).getName());
         return vi;
     }
-
 }
