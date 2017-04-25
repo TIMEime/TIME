@@ -11,15 +11,10 @@ import android.widget.ListView;
 import java.util.ArrayList;
 
 public class MainActivity extends Activity {
-    private EditText editText;
-
-    private EditText editText2;
-    private ImageButton addButton;
-    private ImageButton deleteButton;
-
-    private ImageButton button;
-    private ImageButton button2;
-
+    private EditText name_editText;
+    private EditText data_editText;
+    private ImageButton add_button;
+    private ImageButton delete_button;
     private ListView listView;
     private ArrayList<DB> mDBs = new ArrayList<DB>();
     public  DBHelper dbHelper = new DBHelper(this, null, null, 1);
@@ -29,38 +24,35 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        addButton=(ImageButton)findViewById (R.id.button);
-        deleteButton=(ImageButton)findViewById (R.id.button2);
-
-        button=(ImageButton)findViewById (R.id.button);
-        button2=(ImageButton)findViewById (R.id.button2);
-
-        editText=(EditText)findViewById (R.id.edit_text);
-        editText2=(EditText)findViewById (R.id.edit_text2);
+        add_button=(ImageButton)findViewById (R.id.add_button);
+        delete_button=(ImageButton)findViewById (R.id.delete_button);
+        name_editText=(EditText)findViewById (R.id.name_edit_text);
+        data_editText=(EditText)findViewById (R.id.data_edit_text);
         listView = (ListView) findViewById (R.id.main_list);
 
         mDBs = dbHelper.getAll();
         ListAdapter adapter = new ListAdapter(this, mDBs);
         listView.setAdapter(adapter);
 
-        addButton.setOnClickListener(new Button.OnClickListener() {
+        add_button.setOnClickListener(new Button.OnClickListener() {
             //存入資料
             @Override
             public void onClick(View view) {
-                DB mDB = new DB(editText.getText().toString(),editText2.getText().toString());
+                DB mDB = new DB(name_editText.getText().toString(),data_editText.getText().toString());
                 dbHelper.addData(mDB);
-                editText.setText("");
-                editText2.setText("");
+                name_editText.setText("");
+                data_editText.setText("");
                 updateAdapter();
             }
         });
 
-        deleteButton.setOnClickListener(new Button.OnClickListener() {
+        delete_button.setOnClickListener(new Button.OnClickListener() {
             //刪除資料
             @Override
             public void onClick(View view) {
-                dbHelper.deleteData(editText.getText().toString());
-                editText.setText("");
+                dbHelper.deleteData(name_editText.getText().toString());
+                name_editText.setText("");
+                data_editText.setText("");
                 updateAdapter();
             }
         });
