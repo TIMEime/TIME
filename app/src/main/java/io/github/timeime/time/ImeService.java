@@ -4,6 +4,7 @@ import android.inputmethodservice.InputMethodService;
 import android.inputmethodservice.KeyboardView;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Hashtable;
@@ -15,7 +16,6 @@ public class ImeService extends InputMethodService {
     private KeyboardView mkeyView;
     private CandidateView mCandView;
     public  DBHelper dbHelper = new DBHelper(this, null, null, 1);
-
     @Override
     public View onCreateInputView() {
         View mkeyView = LayoutInflater.from(this).inflate(
@@ -32,8 +32,13 @@ public class ImeService extends InputMethodService {
     }
 
     public void findData(){
+        try{
         String data=dbHelper.findData("123").getData();
         getCurrentInputConnection().commitText(data, 0);
+        }catch(Exception obj){
+            Toast.makeText(this,"找不到資料",Toast.LENGTH_SHORT).show();
+        }
+
     }
 
     public void commitText(String data) {

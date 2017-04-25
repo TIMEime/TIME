@@ -22,7 +22,11 @@
         android:text="資料內容: "
         android:textSize="24sp"
         android:layout_below="@+id/name"
+<<<<<<< HEAD
+        android:layout_marginTop="12dp" />
+=======
         android:layout_marginTop="13dp" />
+>>>>>>> cdc9e2c7a42c3eae3fe900a717b99beb12451cf0
     <EditText
         android:id="@+id/name_edit_text"
         android:layout_width="match_parent"
