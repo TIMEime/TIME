@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class DBHelper extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;// 資料庫版本，資料結構改變的時候要更改這個數字，通常是加一
-    private static final String DATABASE_NAME = "12345.db";// 資料庫名稱
+    private static final String DATABASE_NAME = "777.db";// 資料庫名稱
     private static final String TABLE_NAME = "ACCOUNT";//表格名稱
     public static final String ID_COLUMN = "_ID";//欄位名稱
     public static final String NAME_COLUMN = "DATA";//欄位名稱
