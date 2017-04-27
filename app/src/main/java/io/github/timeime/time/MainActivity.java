@@ -2,19 +2,40 @@ package io.github.timeime.time;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.Settings;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 
 public class MainActivity extends Activity {
+    public static final String LOGTAG = "";
     private EditText name_editText;
     private EditText data_editText;
     private ImageButton add_button;
     private ImageButton delete_button;
     public  DBHelper dbHelper = new DBHelper(this, null, null, 1);
     private Button button;
+
+    private static final int REQUEST_CODE = 1;
+    private  void requestAlertWindowPermission() {
+        Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION);
+        intent.setData(Uri.parse("package:" + getPackageName()));
+        startActivityForResult(intent, REQUEST_CODE);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_CODE) {
+            if (Settings.canDrawOverlays(this)) {
+                Log.i(LOGTAG, "onActivityResult granted");
+            }
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +81,9 @@ public class MainActivity extends Activity {
                 data_editText.setText("");
             }
         });
+
+        // 請求SYSTEM_ALERT_WINDOW權限
+        requestAlertWindowPermission();
     }
 }
 
