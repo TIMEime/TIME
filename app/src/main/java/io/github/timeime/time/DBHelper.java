@@ -10,8 +10,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 import java.util.ArrayList;
 
 public class DBHelper extends SQLiteOpenHelper {
-    private static final int DATABASE_VERSION = 2;// 資料庫版本，資料結構改變的時候要更改這個數字，通常是加一
-    private static final String DATABASE_NAME = "888.db";// 資料庫名稱
+    private static final int DATABASE_VERSION = 3;// 資料庫版本，資料結構改變的時候要更改這個數字，通常是加一
+    private static final String DATABASE_NAME = "999.db";// 資料庫名稱
 
     private static final String DATA_TABLE_NAME = "DATA_TABLE";//表格名稱
     private static final String DATA_ID_COLUMN = "_ID";//欄位名稱
@@ -68,6 +68,17 @@ public class DBHelper extends SQLiteOpenHelper {
         db.close();
     }
 
+    //新增帳戶
+    public void addAccount(AccountDB mDB){
+        ContentValues values =new ContentValues();
+        values.put(ACCOUNT_ACCOUNT_COLUMN,mDB.getAccount());
+        values.put(ACCOUNT_PASSWORD_COLUMN,mDB.getPassword());
+        values.put(ACCOUNT_EMAIL_COLUMN,mDB.getEmail());
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.insert(ACCOUNT_TABLE_NAME, null, values);
+        db.close();
+    }
+
     //取得全部資料
     public ArrayList<DB> getAll(){
         ArrayList<DB> mDBs = new ArrayList<DB>();
@@ -107,6 +118,47 @@ public class DBHelper extends SQLiteOpenHelper {
         }
         db.close();
         return mDB;
+    }
+    public boolean findPassword(String account,String password){
+        int flag=0;
+        String query = "Select * FROM " + ACCOUNT_TABLE_NAME + " WHERE " + ACCOUNT_ACCOUNT_COLUMN + " =  \"" + account + "\"";
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(query, null);
+        AccountDB mDB = new AccountDB();
+        if (cursor.moveToFirst()) {
+            cursor.moveToFirst();
+            mDB.setPassword(cursor.getString(2));
+            cursor.close();
+        } else {
+            mDB = null;
+        }
+        if(!password.equals(mDB.getPassword())){
+            flag=1;
+        }
+        db.close();
+        if(flag==1){
+            return false;
+        }else{
+            return true;
+        }
+    }
+    //找尋帳號是否存在
+    public boolean findAccount(String account){
+        int flag=0;
+        String query = "Select * FROM " + ACCOUNT_TABLE_NAME + " WHERE " + ACCOUNT_ACCOUNT_COLUMN + " =  \"" + account + "\"";
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(query, null);
+        if (cursor.getCount()==0) {
+            flag=0;
+        }else{
+            flag=1;
+        }
+        db.close();
+        if(flag==1){
+            return false;
+        }else{
+            return true;
+        }
     }
 
     // 刪除資料

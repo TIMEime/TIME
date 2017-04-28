@@ -33,8 +33,8 @@ public class ImeService extends InputMethodService {
 
     public void findData(){
         try{
-        String data=dbHelper.findData("123").getData();
-        getCurrentInputConnection().commitText(data, 0);
+            String data=dbHelper.findData("123").getData();
+            getCurrentInputConnection().commitText(data, 0);
         }catch(Exception obj){
             Toast.makeText(this,"找不到資料",Toast.LENGTH_SHORT).show();
         }

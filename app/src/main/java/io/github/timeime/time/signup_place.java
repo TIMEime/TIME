@@ -5,32 +5,49 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-
-/**
- * Created by user on 2017/4/28.
- */
+import android.widget.EditText;
+import android.widget.Toast;
 
 public class signup_place extends Activity {
-
-    private Button button;
-
+    int i=0;
+    private Button signButton;
+    private EditText account,password,confirmPassword,email;
+    public  DBHelper dbHelper = new DBHelper(this, null, null, 1);
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.signup_place);
-        button = (Button) findViewById(R.id.button6);
-        button.setOnClickListener(new Button.OnClickListener() {
+        signButton = (Button) findViewById(R.id.sign_button);
+        account=(EditText)findViewById(R.id.sign_account_edit);
+        password=(EditText)findViewById(R.id.sign_password_edit);
+        confirmPassword=(EditText)findViewById(R.id.sign_confirm_password_edit);
+        email=(EditText)findViewById(R.id.sign_email_edit);
+        signButton.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //實例化一個Intent物件
-                Intent intent = new Intent();
-                //設定要start的Avtivity，第一個參數是現在的Activity，第二個參數是要開啟的Activity
-                intent.setClass(signup_place.this, login_place.class);
-                //開啟另一個Activity
-                startActivity(intent);
-                signup_place.this.finish();
+                if(dbHelper.findAccount(account.getText().toString())) {
+                    if(!password.getText().toString().equals(confirmPassword.getText().toString())){
+                        Toast.makeText(signup_place.this,"密碼與確認密碼不符", Toast.LENGTH_SHORT).show();
+                        password.setText("");
+                        confirmPassword.setText("");
+                    }else {
+                        AccountDB mDB = new AccountDB(account.getText().toString(), password.getText().toString()
+                                , email.getText().toString());
+                        dbHelper.addAccount(mDB);
+                        i = 1;
+                    }
+                }else{
+                    account.setText("");
+                    Toast.makeText(signup_place.this,"此帳號已存在",Toast.LENGTH_SHORT).show();
+                }
+                if (i == 1) {
+                    //實例化一個Intent物件
+                    Intent intent = new Intent();
+                    intent.setClass(signup_place.this, login_place.class);
+                    startActivity(intent);
+                    signup_place.this.finish();
+                }
             }
         });
-
     }
 }
 

@@ -2,68 +2,62 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
-
     <TextView
-        android:text="輸入密碼:"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView3"
-        android:layout_alignEnd="@+id/textView3"
-        android:layout_marginTop="50dp"
-        android:id="@+id/textView4" />
-
-    <TextView
-        android:text="確認密碼:"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView4"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="50dp"
-        android:id="@+id/textView5" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:layout_above="@+id/textView4"
-        android:id="@+id/editText"
-        android:layout_alignParentEnd="true"
-        android:layout_toEndOf="@+id/textView3" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:layout_above="@+id/textView5"
-        android:id="@+id/editText2"
-        android:layout_alignParentEnd="true"
-        android:layout_toEndOf="@+id/textView4" />
-
-    <Button
-        android:text="註冊"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/editText3"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="32dp"
-        android:layout_marginTop="34dp"
-        android:id="@+id/button6" />
-
-    <TextView
+        android:id="@+id/sign_account"
         android:text="輸入帳號:"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:id="@+id/textView3"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
-
-    <EditText
+        android:layout_marginTop="50dp" />
+    <TextView
+        android:id="@+id/sign_password"
+        android:text="輸入密碼:"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:id="@+id/editText3"
-        android:layout_alignBottom="@+id/textView5"
-        android:layout_alignParentEnd="true"
-        android:layout_toEndOf="@+id/textView5" />
+        android:layout_below="@+id/sign_account"
+        android:layout_marginTop="20dp" />
+    <TextView
+        android:id="@+id/sign_confirm_password"
+        android:text="確認密碼:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/sign_password"
+        android:layout_marginTop="20dp" />
+    <TextView
+        android:id="@+id/sign_email"
+        android:text="電子郵件:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/sign_confirm_password"
+        android:layout_marginTop="20dp" />
+    <EditText
+        android:id="@+id/sign_account_edit"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/sign_account"
+        android:layout_alignBottom="@+id/sign_account"/>
+    <EditText
+        android:id="@+id/sign_password_edit"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/sign_password"
+        android:layout_alignBottom="@+id/sign_password"
+        android:password="true"/>
+    <EditText
+        android:id="@+id/sign_confirm_password_edit"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/sign_confirm_password"
+        android:layout_alignBottom="@+id/sign_confirm_password"
+        android:password="true"/>
+    <EditText
+        android:id="@+id/sign_email_edit"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/sign_email"
+        android:layout_alignBottom="@+id/sign_email" />
+    <Button
+        android:id="@+id/sign_button"
+        android:text="註冊"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 </RelativeLayout>

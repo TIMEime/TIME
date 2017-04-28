@@ -1,46 +1,20 @@
 package io.github.timeime.time;
 
-public class DB {
+public class AccountDB {
     private int id;
-    private String data;
-    private String name;
     private String account;
     private String password;
     private String email;
-    public DB() {
+    public AccountDB() {
     }
-
-    public DB( String data,String name,String account) {
-        this.data = data;
-        this.name=name;
+    public AccountDB(String account,String password,String email) {
         this.account=account;
+        this.password=password;
+        this.email=email;
     }
-    public DB(String data) {
-        this.data = data;
-    }
-
-    public void setID(int id) {
-        this.id = id;
-    }
-
+    public void setID(int id) {this.id = id;}
     public int getID() {
         return this.id;
-    }
-
-
-    public void setData(String data) {
-        this.data = data;
-    }
-
-    public String getData() {
-        return this.data;
-    }
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getName() {
-        return this.name;
     }
     public void setAccount(String account) {
         this.account = account;

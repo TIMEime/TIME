@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 
+import static io.github.timeime.time.R.id.account;
+
 public class MainActivity extends Activity {
     public static final String LOGTAG = "";
     private EditText name_editText;
@@ -19,7 +21,6 @@ public class MainActivity extends Activity {
     private ImageButton delete_button;
     public  DBHelper dbHelper = new DBHelper(this, null, null, 1);
     private Button button,button2;
-
 
     private static final int REQUEST_CODE = 1;
     private  void requestAlertWindowPermission() {
@@ -66,7 +67,7 @@ public class MainActivity extends Activity {
             //存入資料
             @Override
             public void onClick(View view) {
-                DB mDB = new DB(name_editText.getText().toString(),data_editText.getText().toString(),"123");
+                DB mDB = new DB(name_editText.getText().toString(),data_editText.getText().toString(),login_place.account.getText().toString());
                 dbHelper.addData(mDB);
                 name_editText.setText("");
                 data_editText.setText("");
