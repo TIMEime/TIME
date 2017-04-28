@@ -4,12 +4,16 @@ public class DB {
     private int id;
     private String data;
     private String name;
+    private String account;
+    private String password;
+    private String email;
     public DB() {
     }
 
-    public DB( String data,String name) {
+    public DB( String data,String name,String account) {
         this.data = data;
         this.name=name;
+        this.account=account;
     }
 
     public DB(String data) {
@@ -38,5 +42,26 @@ public class DB {
 
     public String getName() {
         return this.name;
+    }
+    public void setAccount(String account) {
+        this.account = account;
+    }
+
+    public String getAccount() {
+        return this.account;
+    }
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getPassword() {
+        return this.password;
+    }
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getEmail() {
+        return this.email;
     }
 }

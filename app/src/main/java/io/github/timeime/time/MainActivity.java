@@ -64,7 +64,7 @@ public class MainActivity extends Activity {
             //存入資料
             @Override
             public void onClick(View view) {
-                DB mDB = new DB(name_editText.getText().toString(),data_editText.getText().toString());
+                DB mDB = new DB(name_editText.getText().toString(),data_editText.getText().toString(),"123");
                 dbHelper.addData(mDB);
                 name_editText.setText("");
                 data_editText.setText("");
