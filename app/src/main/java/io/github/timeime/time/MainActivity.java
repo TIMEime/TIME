@@ -18,7 +18,8 @@ public class MainActivity extends Activity {
     private ImageButton add_button;
     private ImageButton delete_button;
     public  DBHelper dbHelper = new DBHelper(this, null, null, 1);
-    private Button button;
+    private Button button,button2;
+
 
     private static final int REQUEST_CODE = 1;
     private  void requestAlertWindowPermission() {
@@ -42,6 +43,7 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         button=(Button)findViewById(R.id.button);
+        button2=(Button)findViewById(R.id.button7);
         add_button=(ImageButton)findViewById (R.id.add_button);
         delete_button=(ImageButton)findViewById (R.id.delete_button);
         name_editText=(EditText)findViewById (R.id.name_edit_text);
@@ -79,6 +81,18 @@ public class MainActivity extends Activity {
                 dbHelper.deleteData(name_editText.getText().toString());
                 name_editText.setText("");
                 data_editText.setText("");
+            }
+        });
+        button2.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //實例化一個Intent物件
+                Intent intent = new Intent();
+                //設定要start的Avtivity，第一個參數是現在的Activity，第二個參數是要開啟的Activity
+                intent.setClass(MainActivity.this, login_place.class);
+                //開啟另一個Activity
+                startActivity(intent);
+                // login_place.this.finish();
             }
         });
 

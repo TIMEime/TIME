@@ -33,15 +33,17 @@ public class data_place  extends Activity {
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //實例化一個Intent物件
-                Intent intent = new Intent();
-                //設定要start的Avtivity，第一個參數是現在的Activity，第二個參數是要開啟的Activity
-                intent.setClass(data_place.this, MainActivity.class);
-                //開啟另一個Activity
-                startActivity(intent);
-            }
+
+                    //實例化一個Intent物件
+                    Intent intent = new Intent();
+                    //設定要start的Avtivity，第一個參數是現在的Activity，第二個參數是要開啟的Activity
+                    intent.setClass(data_place.this, MainActivity.class);
+                    //開啟另一個Activity
+                    startActivity(intent);
+                }
+
         });
 
-    }
+}
 
 }
