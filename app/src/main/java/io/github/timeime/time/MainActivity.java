@@ -17,8 +17,8 @@ public class MainActivity extends Activity {
     public static final String LOGTAG = "";
     private EditText name_editText;
     private EditText data_editText;
-    private ImageButton add_button;
-    private ImageButton delete_button;
+    private Button add_button;
+    private Button delete_button;
     public  DBHelper dbHelper = new DBHelper(this, null, null, 1);
     private Button button,button2;
 
@@ -45,8 +45,8 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         button=(Button)findViewById(R.id.button);
         button2=(Button)findViewById(R.id.button7);
-        add_button=(ImageButton)findViewById (R.id.add_button);
-        delete_button=(ImageButton)findViewById (R.id.delete_button);
+        add_button=(Button)findViewById (R.id.add_button);
+        delete_button=(Button)findViewById (R.id.delete_button);
         name_editText=(EditText)findViewById (R.id.name_edit_text);
         data_editText=(EditText)findViewById (R.id.data_edit_text);
 
