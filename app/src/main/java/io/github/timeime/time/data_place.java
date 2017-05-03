@@ -22,6 +22,7 @@ public class data_place  extends Activity {
         mDBs = dbHelper.getAll();
         ListAdapter adapter = new ListAdapter(this, mDBs);
         listView.setAdapter(adapter);
+
         ImageButton button_data_place = (ImageButton) findViewById(R.id.button2);
 
         button_data_place.setOnClickListener(new View.OnClickListener() {
