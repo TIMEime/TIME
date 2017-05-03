@@ -1,21 +1,28 @@
 package io.github.timeime.time;
 
-import android.content.DialogInterface;
-import android.inputmethodservice.InputMethodService;
+import android.content.Context;
 import android.inputmethodservice.Keyboard;
 import android.inputmethodservice.KeyboardView;
 import android.inputmethodservice.KeyboardView.OnKeyboardActionListener;
-import android.support.v7.app.AlertDialog;
-import android.view.WindowManager;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.PopupWindow;
 
-public class KeyboardUtil extends InputMethodService {
+import static android.content.Context.LAYOUT_INFLATER_SERVICE;
+
+public class KeyboardUtil  {
 
     private KeyboardView keyboardView;
     private ImeService imeService;
     private Keyboard keyboardSmallLetter, keyboardNumber, keyboardCapitalLetter;
+    Context context;
 
     public KeyboardUtil(ImeService imeService1, KeyboardView keyboardView1) {
         super();
+        context = imeService1.getApplicationContext();
         keyboardView = keyboardView1;
         keyboardView.setOnKeyboardActionListener(listener);
         imeService = imeService1;
@@ -26,19 +33,7 @@ public class KeyboardUtil extends InputMethodService {
         keyboardView.setEnabled(true);
         keyboardView.setPreviewEnabled(true);
     }
-    public void show(){
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("123");
-        builder.setMessage("123");
-        builder.setPositiveButton("123", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int whichButton) {
-                dialog.dismiss();
-            }
-        });
-        AlertDialog alert = builder.create();
-        alert.getWindow().setType(WindowManager.LayoutParams.TYPE_SYSTEM_ALERT);//設定提示框為系統提示框
-        alert.show();
-    }
+
     private OnKeyboardActionListener listener = new OnKeyboardActionListener() {
 
         @Override
@@ -73,7 +68,7 @@ public class KeyboardUtil extends InputMethodService {
         public void onKey(int primaryCode, int[] keyCodes) {
             switch (primaryCode) {
                 case Keyboard.KEYCODE_SHIFT:
-                    show();
+
                     imeService.findData();
 
                     if(keyboardView.getKeyboard() == keyboardCapitalLetter) {
@@ -84,6 +79,26 @@ public class KeyboardUtil extends InputMethodService {
                     break;
                 case Keyboard.KEYCODE_DELETE:
                     imeService.deleteText();
+					///
+                    LayoutInflater layoutInflater
+                            = (LayoutInflater)context
+                            .getSystemService(LAYOUT_INFLATER_SERVICE);
+                    View popupView = layoutInflater.inflate(R.layout.popup_layout, null);
+                    final PopupWindow popupWindow = new PopupWindow(
+                            popupView,
+                            ViewGroup.LayoutParams.WRAP_CONTENT,
+                            ViewGroup.LayoutParams.WRAP_CONTENT);
+
+                    Button btnDismiss = (Button)popupView.findViewById(R.id.dismiss);
+                    btnDismiss.setOnClickListener(new Button.OnClickListener(){
+
+                        @Override
+                        public void onClick(View v) {
+                            // TODO Auto-generated method stub
+                            popupWindow.dismiss();
+                        }});
+                    popupWindow.showAsDropDown(keyboardView, Gravity.LEFT|Gravity.TOP, 10, 70);
+                    ///
                     break;
                 case Keyboard.KEYCODE_CANCEL:
                     imeService.hideInputMethod();
