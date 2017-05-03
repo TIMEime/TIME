@@ -5,8 +5,7 @@ public class AccountDB {
     private String account;
     private String password;
     private String email;
-    public AccountDB() {
-    }
+    public AccountDB() {}
     public AccountDB(String account,String password,String email) {
         this.account=account;
         this.password=password;
