@@ -2,10 +2,7 @@ package io.github.timeime.time;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.provider.Settings;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,7 +15,7 @@ public class MainActivity extends Activity {
     public  DBHelper dbHelper = new DBHelper(this, null, null, 1);
     private Button button,button2;
 
-    public static final String LOGTAG = "";
+    /*public static final String LOGTAG = "";
     private static final int REQUEST_CODE = 1;
     private  void requestAlertWindowPermission() {
         Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION);
@@ -34,7 +31,7 @@ public class MainActivity extends Activity {
                 Log.i(LOGTAG, "onActivityResult granted");
             }
         }
-    }
+    }*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,11 +47,8 @@ public class MainActivity extends Activity {
         button.setOnClickListener(new Button.OnClickListener(){
             @Override
             public void onClick(View v) {
-                //實例化一個Intent物件
                 Intent intent = new Intent();
-                //設定要start的Avtivity，第一個參數是現在的Activity，第二個參數是要開啟的Activity
                 intent.setClass(MainActivity.this, data_place.class);
-                //開啟另一個Activity
                 startActivity(intent);
                 MainActivity.this.finish();
             }
@@ -95,7 +89,7 @@ public class MainActivity extends Activity {
         });
 
         // 請求SYSTEM_ALERT_WINDOW權限
-        requestAlertWindowPermission();
+        //requestAlertWindowPermission();
     }
 }
 

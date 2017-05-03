@@ -2,13 +2,10 @@ package io.github.timeime.time;
 
 import android.Manifest;
 import android.app.Activity;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
-import android.support.v7.app.AlertDialog;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -48,7 +45,6 @@ public class login_place extends Activity {
             @Override
             public void onClick(View v) {
                 int i=0;
-                show();
                 if(dbHelper.findAccount(account.getText().toString())){
                     Toast.makeText(login_place.this,"此帳號不存在", Toast.LENGTH_SHORT).show();
                 }else{
@@ -67,19 +63,5 @@ public class login_place extends Activity {
                 }
             }
         });
-    }
-
-    public void show(){
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("123");
-        builder.setMessage("123");
-        builder.setPositiveButton("123", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int whichButton) {
-                dialog.dismiss();
-            }
-        });
-        AlertDialog alert = builder.create();
-        alert.getWindow().setType(WindowManager.LayoutParams.TYPE_SYSTEM_ALERT);//設定提示框為系統提示框
-        alert.show();
     }
 }

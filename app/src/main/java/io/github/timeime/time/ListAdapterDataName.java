@@ -9,13 +9,13 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class ListAdapter extends BaseAdapter {
+public class ListAdapterDataName extends BaseAdapter {
 
     private Context context;
     private static LayoutInflater inflater = null;
     private ArrayList<DB> mDBs;
 
-    public ListAdapter(Context c, ArrayList<DB> arrayProducts) {
+    public ListAdapterDataName(Context c, ArrayList<DB> arrayProducts) {
         context = c;
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         mDBs = arrayProducts;
@@ -36,11 +36,9 @@ public class ListAdapter extends BaseAdapter {
     // create a new ImageView for each item referenced by the Adapter
     public View getView(int position, View convertView, ViewGroup parent) {
         View vi = convertView;
-        vi = inflater.inflate(R.layout.item_list, null);
-        TextView text = (TextView) vi.findViewById(R.id.text_list);
-        TextView text2 = (TextView) vi.findViewById(R.id.text_list22);
+        vi = inflater.inflate(R.layout.item_list2, null);
+        TextView text = (TextView) vi.findViewById(R.id.text_list111);
         text.setText(mDBs.get(position).getName());
-        text2.setText(mDBs.get(position).getData());
         return vi;
     }
 }

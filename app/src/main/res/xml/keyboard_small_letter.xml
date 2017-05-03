@@ -4,7 +4,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
     <Row>
         <Key android:codes="113" android:keyEdgeFlags="left"
-            android:keyLabel="q" />
+            android:keyLabel="TIME" />
         <Key android:codes="119" android:keyLabel="w" />
         <Key android:codes="101" android:keyLabel="e" />
         <Key android:codes="114" android:keyLabel="r" />

@@ -103,15 +103,15 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     //找尋資料
-    public DB findData(String data) {
-        String query = "Select * FROM " + DATA_TABLE_NAME + " WHERE " + DATA_DATA_COLUMN + " =  \"" + data + "\"";
+    public DB findData(String name) {
+        String query = "Select * FROM " + DATA_TABLE_NAME + " WHERE " + DATA_NAME_COLUMN + " =  \"" + name + "\"";
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(query, null);
         DB mDB = new DB();
         if (cursor.moveToFirst()) {
             cursor.moveToFirst();
             mDB.setID(Integer.parseInt(cursor.getString(0)));
-            mDB.setData(cursor.getString(1));
+            mDB.setData(cursor.getString(3));
             cursor.close();
         } else {
             mDB = null;

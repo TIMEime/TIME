@@ -46,9 +46,9 @@ public void show(){
     alert.getWindow().setType(WindowManager.LayoutParams.TYPE_SYSTEM_ALERT);//設定提示框為系統提示框
     alert.show();
 }
-    public void findData(){
+    public void findData(String name){
         try{
-            String data=dbHelper.findData("123").getData();
+            String data=dbHelper.findData(name).getData();
             getCurrentInputConnection().commitText(data, 0);
         }catch(Exception obj){
             Toast.makeText(this,"找不到資料",Toast.LENGTH_SHORT).show();

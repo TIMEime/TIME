@@ -103,7 +103,7 @@ public class CandidateView extends View {
         Rect padding = new Rect();
         mSelectionHighlight.getPadding(padding);
         //final int desiredHeight = ((int)mPaint.getTextSize()) + mVerticalPadding + padding.top + padding.bottom;
-        setMeasuredDimension(resolveSize(50, widthMeasureSpec),resolveSize(800, heightMeasureSpec));
+        setMeasuredDimension(resolveSize(50, widthMeasureSpec),resolveSize(1000, heightMeasureSpec));
     }
 
     //這是每個View對象繪制自己的函數，重載之。經測試：沒有這個函數的重載，則顯示不出字來，這個就是用來顯示字條

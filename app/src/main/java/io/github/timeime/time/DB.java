@@ -8,7 +8,7 @@ public class DB {
     private String password;
     private String email;
     public DB() {}
-    public DB( String data,String name,String account) {
+    public DB( String name,String data,String account) {
         this.data = data;
         this.name=name;
         this.account=account;

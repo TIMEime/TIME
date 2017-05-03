@@ -12,6 +12,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.PopupWindow;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -72,7 +73,6 @@ public class KeyboardUtil  {
         public void onKey(int primaryCode, int[] keyCodes) {
             switch (primaryCode) {
                 case Keyboard.KEYCODE_SHIFT:
-                    imeService.findData();
                     if(keyboardView.getKeyboard() == keyboardCapitalLetter) {
                         keyboardView.setKeyboard(keyboardSmallLetter);
                     }else {
@@ -81,7 +81,17 @@ public class KeyboardUtil  {
                     break;
                 case Keyboard.KEYCODE_DELETE:
                     imeService.deleteText();
-					///
+                    break;
+                case Keyboard.KEYCODE_CANCEL:
+                    imeService.hideInputMethod();
+                    break;
+                case -2:
+                    keyboardView.setKeyboard(keyboardNumber);
+                    break;
+                case 10000:
+                    keyboardView.setKeyboard(keyboardSmallLetter);
+                    break;
+                case 113:
                     LayoutInflater layoutInflater
                             = (LayoutInflater)context
                             .getSystemService(LAYOUT_INFLATER_SERVICE);
@@ -95,7 +105,7 @@ public class KeyboardUtil  {
                     DBHelper dbHelper = new DBHelper(context, null, null, 1);
                     listView = (ListView) popupView.findViewById (R.id.list);
                     mDBs = dbHelper.getAll();
-                    ListAdapter adapter = new ListAdapter(context, mDBs);
+                    ListAdapterDataName adapter = new ListAdapterDataName(context, mDBs);
                     listView.setAdapter(adapter);
                     AdapterView.OnItemClickListener itemListener = new AdapterView.OnItemClickListener() {
                         // 第一個參數是使用者操作的ListView物件
@@ -105,7 +115,9 @@ public class KeyboardUtil  {
                         @Override
                         public void onItemClick(AdapterView<?> parent, View view,
                                                 int position, long id) {
-                            imeService.getCurrentInputConnection().commitText("123", 0);
+                            TextView text=(TextView)view.findViewById(R.id.text_list111);
+                            imeService.findData(text.getText().toString());
+                            popupWindow.dismiss();
                         }
                     };
                     listView.setOnItemClickListener(itemListener);
@@ -118,20 +130,10 @@ public class KeyboardUtil  {
                             popupWindow.dismiss();
                         }});
                     popupWindow.showAsDropDown(keyboardView, Gravity.LEFT|Gravity.TOP, 10, 70);
-                    ///
-                    break;
-                case Keyboard.KEYCODE_CANCEL:
-                    imeService.hideInputMethod();
-                    break;
-                case -2:
-                    keyboardView.setKeyboard(keyboardNumber);
-                    break;
-                case 10000:
-                    keyboardView.setKeyboard(keyboardSmallLetter);
                     break;
                 default:
                     imeService.commitText(Character.toString((char) primaryCode));
-                    imeService.setCandidatesViewShown(true);
+                    //imeService.setCandidatesViewShown(true);
                     imeService.onKey(Character.toString((char) primaryCode));
                     break;
             }
