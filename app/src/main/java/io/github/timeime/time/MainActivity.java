@@ -9,12 +9,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
-
-import static io.github.timeime.time.R.id.account;
 
 public class MainActivity extends Activity {
-    public static final String LOGTAG = "";
     private EditText name_editText;
     private EditText data_editText;
     private Button add_button;
@@ -22,6 +18,7 @@ public class MainActivity extends Activity {
     public  DBHelper dbHelper = new DBHelper(this, null, null, 1);
     private Button button,button2;
 
+    public static final String LOGTAG = "";
     private static final int REQUEST_CODE = 1;
     private  void requestAlertWindowPermission() {
         Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION);
