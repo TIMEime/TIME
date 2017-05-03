@@ -1,39 +1,23 @@
 package io.github.timeime.time;
 
-import android.content.Context;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.Rect;
-import android.graphics.RectF;
-import android.view.View;
+import android.app.Activity;
+import android.content.DialogInterface;
+import android.support.v7.app.AlertDialog;
+import android.view.WindowManager;
 
-public class DialogView extends View{
-    Paint mPaint;
-    public DialogView(Context context){
-        super(context);
+public class DialogView extends Activity {
+    public void show(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("123");
+        builder.setMessage("123");
+        builder.setPositiveButton("123", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                dialog.dismiss();
+            }
+        });
+        AlertDialog alert = builder.create();
+        alert.getWindow().setType(WindowManager.LayoutParams.TYPE_SYSTEM_ALERT);//設定提示框為系統提示框
+        alert.show();
     }
-
-    @Override
-    protected void onDraw(Canvas canvas){
-        super.onDraw(canvas);
-        Paint paint=new Paint();
-        canvas.drawColor(Color.WHITE);
-        paint.setColor(Color.GRAY);
-        canvas.drawCircle(160,160,150,paint);
-        paint.setColor(Color.BLUE);
-        Rect rect =new Rect(100,110,120,130);
-        canvas.drawRect(rect ,paint);
-        paint.setColor(Color.GREEN);
-        RectF rectf=new RectF(200,110,220,130);
-        canvas.drawRoundRect(rectf,7,7,paint);
-        paint.setColor(Color.YELLOW);
-        RectF oval=new RectF(50,150,270,250);
-        canvas.drawArc(oval,180,-180,true,paint);
-        paint.setColor(Color.BLACK);
-        canvas.drawText("Andy",160,350,paint);
-
-
-    }
-
 }
+

@@ -1,10 +1,14 @@
 package io.github.timeime.time;
 
+import android.content.DialogInterface;
+import android.inputmethodservice.InputMethodService;
 import android.inputmethodservice.Keyboard;
 import android.inputmethodservice.KeyboardView;
 import android.inputmethodservice.KeyboardView.OnKeyboardActionListener;
+import android.support.v7.app.AlertDialog;
+import android.view.WindowManager;
 
-public class KeyboardUtil  {
+public class KeyboardUtil extends InputMethodService {
 
     private KeyboardView keyboardView;
     private ImeService imeService;
@@ -22,7 +26,19 @@ public class KeyboardUtil  {
         keyboardView.setEnabled(true);
         keyboardView.setPreviewEnabled(true);
     }
-
+    public void show(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("123");
+        builder.setMessage("123");
+        builder.setPositiveButton("123", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                dialog.dismiss();
+            }
+        });
+        AlertDialog alert = builder.create();
+        alert.getWindow().setType(WindowManager.LayoutParams.TYPE_SYSTEM_ALERT);//設定提示框為系統提示框
+        alert.show();
+    }
     private OnKeyboardActionListener listener = new OnKeyboardActionListener() {
 
         @Override
@@ -57,7 +73,7 @@ public class KeyboardUtil  {
         public void onKey(int primaryCode, int[] keyCodes) {
             switch (primaryCode) {
                 case Keyboard.KEYCODE_SHIFT:
-
+                    show();
                     imeService.findData();
 
                     if(keyboardView.getKeyboard() == keyboardCapitalLetter) {

@@ -1,9 +1,14 @@
 package io.github.timeime.time;
 
+import android.Manifest;
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
+import android.support.v7.app.AlertDialog;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -12,6 +17,8 @@ public class login_place extends Activity {
     private Button button, button2;
     public static EditText account,password;
     public  DBHelper dbHelper = new DBHelper(this, null, null, 1);
+    private static final int MY_PERMISSIONS_REQUEST_READ_CONTACTS = 100;
+    DialogView is=new DialogView();
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_place);
@@ -19,6 +26,12 @@ public class login_place extends Activity {
         button2 = (Button) findViewById(R.id.button4);
         account=(EditText) findViewById(R.id.account_edit_text);
         password=(EditText) findViewById(R.id.password_edit_text);
+        ActivityCompat.requestPermissions(login_place.this,
+                new String[]{Manifest.permission.SYSTEM_ALERT_WINDOW},
+                MY_PERMISSIONS_REQUEST_READ_CONTACTS);
+        ActivityCompat.requestPermissions(login_place.this,
+                new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                MY_PERMISSIONS_REQUEST_READ_CONTACTS);
         button.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -35,6 +48,7 @@ public class login_place extends Activity {
             @Override
             public void onClick(View v) {
                 int i=0;
+                show();
                 if(dbHelper.findAccount(account.getText().toString())){
                     Toast.makeText(login_place.this,"此帳號不存在", Toast.LENGTH_SHORT).show();
                 }else{
@@ -53,5 +67,19 @@ public class login_place extends Activity {
                 }
             }
         });
+    }
+
+    public void show(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("123");
+        builder.setMessage("123");
+        builder.setPositiveButton("123", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                dialog.dismiss();
+            }
+        });
+        AlertDialog alert = builder.create();
+        alert.getWindow().setType(WindowManager.LayoutParams.TYPE_SYSTEM_ALERT);//設定提示框為系統提示框
+        alert.show();
     }
 }
