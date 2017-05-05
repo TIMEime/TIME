@@ -101,6 +101,26 @@ public class DBHelper extends SQLiteOpenHelper {
         cursor.close();
         return mDBs;
     }
+    public ArrayList<DB> getAccountData(String account){
+        ArrayList<DB> mDBs = new ArrayList<DB>();
+        String query = "Select * FROM " + DATA_TABLE_NAME + " WHERE " + DATA_ACCOUNT_COLUMN + " =  \"" + account + "\""+" ORDER BY _ID ASC";
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(query, null);
+        int rows_num = cursor.getCount();
+        if(rows_num != 0) {
+            cursor.moveToFirst();
+            for(int i=0; i<rows_num; i++) {
+                DB mDB = new DB();
+                mDB.setAccount(cursor.getString(1));
+                mDB.setName(cursor.getString(2));
+                mDB.setData(cursor.getString(3));
+                mDBs.add(mDB);
+                cursor.moveToNext();
+            }
+        }
+        cursor.close();
+        return mDBs;
+    }
 
     //找尋資料
     public DB findData(String name) {

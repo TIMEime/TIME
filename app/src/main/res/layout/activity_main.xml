@@ -16,9 +16,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/button_shape"
-        android:id="@+id/button"
+        android:id="@+id/check_data_button"
         android:layout_marginBottom="17dp"
-        android:layout_above="@+id/button7"
+        android:layout_above="@+id/logout_button"
         android:layout_alignParentEnd="true" />
 
     <Button
@@ -28,7 +28,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="48dp"
-        android:id="@+id/button7"
+        android:id="@+id/logout_button"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true" />
 

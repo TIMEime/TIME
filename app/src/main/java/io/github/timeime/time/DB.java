@@ -1,5 +1,5 @@
 package io.github.timeime.time;
-
+//設定與取得資料庫內容的類別
 public class DB {
     private int id;
     private String data;

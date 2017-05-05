@@ -19,7 +19,7 @@ public class data_place  extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.data_place);
         listView = (ListView) findViewById (R.id.main_list);
-        mDBs = dbHelper.getAll();
+        mDBs = dbHelper.getAccountData(login_place.ACCOUNT);
         ListAdapter adapter = new ListAdapter(this, mDBs);
         listView.setAdapter(adapter);
 

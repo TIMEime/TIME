@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -104,14 +105,10 @@ public class KeyboardUtil  {
                     ArrayList<DB> mDBs = new ArrayList<DB>();
                     DBHelper dbHelper = new DBHelper(context, null, null, 1);
                     listView = (ListView) popupView.findViewById (R.id.list);
-                    mDBs = dbHelper.getAll();
+                    mDBs = dbHelper.getAccountData(login_place.ACCOUNT);
                     ListAdapterDataName adapter = new ListAdapterDataName(context, mDBs);
                     listView.setAdapter(adapter);
                     AdapterView.OnItemClickListener itemListener = new AdapterView.OnItemClickListener() {
-                        // 第一個參數是使用者操作的ListView物件
-                        // 第二個參數是使用者選擇的項目
-                        // 第三個參數是使用者選擇的項目編號，第一個是0
-                        // 第四個參數在這裡沒有用途
                         @Override
                         public void onItemClick(AdapterView<?> parent, View view,
                                                 int position, long id) {
@@ -122,14 +119,17 @@ public class KeyboardUtil  {
                     };
                     listView.setOnItemClickListener(itemListener);
                     Button btnDismiss = (Button)popupView.findViewById(R.id.dismiss);
+                    if(login_place.ACCOUNT.equals("")){
+                        Toast.makeText(context,"請先登入帳號",Toast.LENGTH_SHORT).show();
+                    }else{
+                        popupWindow.showAtLocation(keyboardView.getRootView(),Gravity.TOP,0,-100);
+                    }
                     btnDismiss.setOnClickListener(new Button.OnClickListener(){
-
                         @Override
                         public void onClick(View v) {
                             // TODO Auto-generated method stub
                             popupWindow.dismiss();
                         }});
-                    popupWindow.showAsDropDown(keyboardView, Gravity.LEFT|Gravity.TOP, 10, 70);
                     break;
                 default:
                     imeService.commitText(Character.toString((char) primaryCode));
