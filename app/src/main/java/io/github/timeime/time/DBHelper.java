@@ -73,7 +73,6 @@ public class DBHelper extends SQLiteOpenHelper {
         ContentValues values =new ContentValues();
         values.put(ACCOUNT_ACCOUNT_COLUMN,mDB.getAccount());
         values.put(ACCOUNT_PASSWORD_COLUMN,mDB.getPassword());
-        values.put(ACCOUNT_EMAIL_COLUMN,mDB.getEmail());
         SQLiteDatabase db = this.getWritableDatabase();
         db.insert(ACCOUNT_TABLE_NAME, null, values);
         db.close();

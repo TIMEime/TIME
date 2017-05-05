@@ -10,17 +10,18 @@ import android.widget.Toast;
 
 public class signup_place extends Activity {
     int i=0;
-    private Button signButton;
-    private EditText account,password,confirmPassword,email;
+    private Button signButton,backButton;
+    private EditText account,password,confirmPassword;
     public  DBHelper dbHelper = new DBHelper(this, null, null, 1);
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.signup_place);
         signButton = (Button) findViewById(R.id.sign_button);
+        backButton=(Button) findViewById(R.id.back_button);
         account=(EditText)findViewById(R.id.sign_account_edit);
         password=(EditText)findViewById(R.id.sign_password_edit);
         confirmPassword=(EditText)findViewById(R.id.sign_confirm_password_edit);
-        email=(EditText)findViewById(R.id.sign_email_edit);
+
         signButton.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -31,7 +32,7 @@ public class signup_place extends Activity {
                         confirmPassword.setText("");
                     }else {
                         AccountDB mDB = new AccountDB(account.getText().toString(), password.getText().toString()
-                                , email.getText().toString());
+                                );
                         dbHelper.addAccount(mDB);
                         i = 1;
                     }
@@ -40,7 +41,6 @@ public class signup_place extends Activity {
                     Toast.makeText(signup_place.this,"此帳號已存在",Toast.LENGTH_SHORT).show();
                 }
                 if (i == 1) {
-                    //實例化一個Intent物件
                     Intent intent = new Intent();
                     intent.setClass(signup_place.this, login_place.class);
                     startActivity(intent);
@@ -48,7 +48,17 @@ public class signup_place extends Activity {
                 }
             }
         });
-    }
+        backButton.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(signup_place.this, login_place.class);
+                startActivity(intent);
+                signup_place.this.finish();
+            }
+        });
+
 }
 
 
+}

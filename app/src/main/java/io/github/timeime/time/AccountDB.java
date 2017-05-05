@@ -4,12 +4,10 @@ public class AccountDB {
     private int id;
     private String account;
     private String password;
-    private String email;
     public AccountDB() {}
-    public AccountDB(String account,String password,String email) {
+    public AccountDB(String account,String password) {
         this.account=account;
         this.password=password;
-        this.email=email;
     }
     public void setID(int id) {this.id = id;}
     public int getID() {
@@ -26,11 +24,5 @@ public class AccountDB {
     }
     public String getPassword() {
         return this.password;
-    }
-    public void setEmail(String email) {
-        this.email = email;
-    }
-    public String getEmail() {
-        return this.email;
     }
 }

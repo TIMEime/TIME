@@ -1,32 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical" android:layout_width="match_parent"
+    android:background="#DDDDDD"
     android:layout_height="match_parent">
-    <TextView
-        android:id="@+id/account"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="帳號: "
-        android:textSize="24sp"
-        android:layout_marginTop="100dp"
-        android:layout_marginStart="25dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
 
-    <EditText
-
-        android:id="@+id/account_edit_text"
-        android:layout_width="fill_parent"
-        android:layout_height="36dip"
-        android:background="@drawable/edittext"
-        android:textColorHint="#AAAAAA"
-        android:textSize="17dip"
-        android:singleLine="true"
-        android:hint="請輸入..."
-        android:layout_above="@+id/password"
-        android:layout_alignParentEnd="true"
-        android:layout_toEndOf="@+id/account" />
 
     <Button
         android:text="小幫手"
@@ -35,9 +14,67 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/button8"
-        android:layout_marginBottom="37dp"
+        android:layout_marginBottom="20dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true" />
+
+    <EditText
+        android:id="@+id/account_edit_text"
+        android:layout_width="250dp"
+        android:layout_height="45dip"
+        android:background="@drawable/edittext"
+        android:textColorHint="#AAAAAA"
+        android:textSize="17dip"
+        android:singleLine="true"
+        android:hint="請輸入..."
+        android:layout_centerVertical="true"
+        android:layout_gravity="center"
+        android:layout_toEndOf="@+id/account" />
+
+    <TextView
+        android:id="@+id/password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="密碼: "
+        android:textSize="24sp"
+        android:layout_alignBaseline="@+id/password_edit_text"
+        android:layout_alignBottom="@+id/password_edit_text"
+        android:layout_toStartOf="@+id/password_edit_text" />
+
+    <TextView
+        android:id="@+id/account"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="帳號: "
+        android:textSize="24sp"
+        android:layout_marginStart="14dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true" />
+
+    <ImageView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/logo"
+        android:id="@+id/imageView"
+        android:layout_above="@+id/account_edit_text"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="21dp" />
+
+    <EditText
+        android:id="@+id/password_edit_text"
+        android:layout_width="fill_parent"
+        android:layout_height="45dip"
+        android:background="@drawable/edittext"
+        android:paddingRight="30dp"
+        android:textColorHint="#AAAAAA"
+        android:textSize="17dip"
+        android:singleLine="true"
+        android:hint="請輸入..."
+        android:password="true"
+        android:layout_below="@+id/account_edit_text"
+        android:layout_alignStart="@+id/account_edit_text"
+        android:layout_alignEnd="@+id/account_edit_text" />
 
     <Button
         android:text="註冊"
@@ -46,34 +83,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/signup_button"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="48dp"
-        android:layout_below="@+id/password_edit_text"
-        android:layout_alignParentEnd="true" />
-
-    <EditText
-        android:id="@+id/password_edit_text"
-        android:layout_width="fill_parent"
-        android:layout_height="36dip"
-        android:background="@drawable/edittext"
-        android:textColorHint="#AAAAAA"
-        android:textSize="17dip"
-        android:singleLine="true"
-        android:hint="請輸入..."
-        android:layout_alignBottom="@+id/password"
-        android:layout_alignParentEnd="true"
-        android:layout_toEndOf="@+id/password"
-        android:password="true"/>
-
-    <TextView
-        android:id="@+id/password"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="密碼: "
-        android:textSize="24sp"
-        android:layout_marginTop="78dp"
-        android:layout_below="@+id/account"
-        android:layout_alignStart="@+id/account" />
+        android:layout_marginEnd="17dp"
+        android:layout_alignBaseline="@+id/login_button"
+        android:layout_alignBottom="@+id/login_button"
+        android:layout_alignEnd="@+id/password_edit_text" />
 
     <Button
         android:text="登入"
@@ -82,7 +95,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/login_button"
-        android:layout_alignBaseline="@+id/signup_button"
-        android:layout_alignBottom="@+id/signup_button"
-        android:layout_toEndOf="@+id/password" />
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/password_edit_text"
+        android:layout_alignStart="@+id/password_edit_text" />
 </RelativeLayout>
