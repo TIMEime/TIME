@@ -146,15 +146,9 @@ public class DBHelper extends SQLiteOpenHelper {
         String query = "Select * FROM " + DATA_TABLE_NAME + " WHERE " + DATA_NAME_COLUMN + " =  \"" + name + "\"";
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(query, null);
-        DB mDB = new DB();
-        if (cursor.moveToFirst()) {
-            cursor.moveToFirst();
-            mDB.setName(cursor.getString(2));
-            cursor.close();
-        } else {
-            mDB = null;
-        }
-        if(!name.equals(mDB.getName())){
+        if (cursor.getCount()==0) {
+            flag=0;
+        }else{
             flag=1;
         }
         db.close();

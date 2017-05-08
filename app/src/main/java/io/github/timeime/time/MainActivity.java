@@ -38,7 +38,7 @@ public class MainActivity extends Activity {
         addButton.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(!dbHelper.findDataExists(nameEditText.getText().toString())) {
+                if(dbHelper.findDataExists(nameEditText.getText().toString())) {
                     DB mDB = new DB(nameEditText.getText().toString(), dataEditText.getText().toString(), ACCOUNT);
                     dbHelper.addData(mDB);
                     nameEditText.setText("");
