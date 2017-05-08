@@ -99,5 +99,13 @@
         android:layout_above="@+id/logout_button"
         android:layout_alignParentEnd="true" />
 
+    <TextView
+        android:id="@+id/account_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:textSize="30dp"/>
+
 
 </RelativeLayout>

@@ -1,3 +1,4 @@
+//鍵盤的類別
 package io.github.timeime.time;
 
 import android.content.Context;
@@ -41,7 +42,6 @@ public class KeyboardUtil  {
     }
 
     private OnKeyboardActionListener listener = new OnKeyboardActionListener() {
-
         @Override
         public void swipeUp() {
         }

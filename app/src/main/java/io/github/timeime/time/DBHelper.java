@@ -78,28 +78,7 @@ public class DBHelper extends SQLiteOpenHelper {
         db.close();
     }
 
-    //取得全部資料
-    public ArrayList<DB> getAll(){
-        ArrayList<DB> mDBs = new ArrayList<DB>();
-        String query = "Select * FROM " + DATA_TABLE_NAME + " ORDER BY _ID ASC";
-        SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery(query, null);
-        int rows_num = cursor.getCount();
-        if(rows_num != 0) {
-            cursor.moveToFirst();
-            for(int i=0; i<rows_num; i++) {
-                DB mDB = new DB();
-                mDB.setID(Integer.parseInt(cursor.getString(0)));
-                mDB.setAccount(cursor.getString(1));
-                mDB.setName(cursor.getString(2));
-                mDB.setData(cursor.getString(3));
-                mDBs.add(mDB);
-                cursor.moveToNext();
-            }
-        }
-        cursor.close();
-        return mDBs;
-    }
+    //取得某帳戶內的資料
     public ArrayList<DB> getAccountData(String account){
         ArrayList<DB> mDBs = new ArrayList<DB>();
         String query = "Select * FROM " + DATA_TABLE_NAME + " WHERE " + DATA_ACCOUNT_COLUMN + " =  \"" + account + "\""+" ORDER BY _ID ASC";
@@ -161,6 +140,31 @@ public class DBHelper extends SQLiteOpenHelper {
             return true;
         }
     }
+
+    public boolean findDataExists(String name){
+        int flag=0;
+        String query = "Select * FROM " + DATA_TABLE_NAME + " WHERE " + DATA_NAME_COLUMN + " =  \"" + name + "\"";
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(query, null);
+        DB mDB = new DB();
+        if (cursor.moveToFirst()) {
+            cursor.moveToFirst();
+            mDB.setName(cursor.getString(2));
+            cursor.close();
+        } else {
+            mDB = null;
+        }
+        if(!name.equals(mDB.getName())){
+            flag=1;
+        }
+        db.close();
+        if(flag==1){
+            return false;
+        }else{
+            return true;
+        }
+    }
+
     //找尋帳號是否存在
     public boolean findAccount(String account){
         int flag=0;
