@@ -4,10 +4,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".MainActivity" >
+    android:paddingLeft="0dp"
+    android:paddingRight="0dp"
+    android:paddingTop="0dp"
+    tools:context=".MainActivity"
+    android:background="#DDDDDD">
 
 
     <Button
@@ -19,50 +20,6 @@
         android:id="@+id/logout_button"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true" />
-
-    <TextView
-        android:id="@+id/data"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="資料內容: "
-        android:textSize="24sp"
-        android:layout_marginTop="40dp"
-        android:layout_below="@+id/name_edit_text"
-        android:layout_alignParentStart="true" />
-
-    <EditText
-        android:id="@+id/data_edit_text"
-        android:background="@drawable/edittext"
-        android:textColorHint="#AAAAAA"
-        android:textSize="17dip"
-        android:singleLine="true"
-        android:hint="請輸入..."
-        android:layout_width="match_parent"
-        android:layout_height="40dip"
-        android:layout_below="@+id/data"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:id="@+id/name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="資料名稱: "
-        android:textSize="24sp"
-        android:layout_marginTop="68dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
-
-    <EditText
-        android:id="@+id/name_edit_text"
-        android:background="@drawable/edittext"
-        android:textColorHint="#AAAAAA"
-        android:textSize="17dip"
-        android:singleLine="true"
-        android:hint="請輸入..."
-        android:layout_width="match_parent"
-        android:layout_height="40dip"
-        android:layout_below="@+id/name"
-        android:layout_alignParentStart="true" />
 
     <Button
         android:id="@+id/delete_button"
@@ -100,12 +57,62 @@
         android:layout_alignParentEnd="true" />
 
     <TextView
+        android:background="#FFEE99"
         android:id="@+id/account_label"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textSize="25dp"
+        android:gravity="center"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:id="@+id/data_edit_text"
+        android:background="@drawable/edittext"
+        android:textColorHint="#AAAAAA"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:textSize="18dip"
+        android:singleLine="true"
+        android:hint="請輸入..."
+        android:layout_width="250dip"
+        android:layout_height="50dip"
+        android:layout_below="@+id/data"
+        android:layout_alignStart="@+id/name_edit_text" />
+
+    <TextView
+        android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:textSize="30dp"/>
+        android:text="資料名稱: "
+        android:textSize="26sp"
+        android:layout_marginTop="47dp"
+        android:layout_below="@+id/account_label"
+        android:layout_alignStart="@+id/name_edit_text" />
+
+    <EditText
+        android:id="@+id/name_edit_text"
+        android:background="@drawable/edittext"
+        android:textColorHint="#AAAAAA"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:textSize="18dip"
+        android:singleLine="true"
+        android:hint="請輸入..."
+        android:layout_width="250dip"
+        android:layout_height="50dip"
+        android:layout_below="@+id/name"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="資料內容: "
+        android:textSize="26sp"
+        android:layout_marginTop="32dp"
+        android:layout_below="@+id/name_edit_text"
+        android:layout_alignStart="@+id/data_edit_text" />
 
 
 </RelativeLayout>

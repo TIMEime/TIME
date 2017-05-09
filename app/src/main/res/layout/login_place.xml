@@ -32,17 +32,6 @@
         android:layout_alignBottom="@+id/login_button"
         android:layout_alignEnd="@+id/password_edit_text" />
 
-    <Button
-        android:text="小幫手"
-        android:textSize="18sp"
-        android:background="@drawable/button_shape"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/button8"
-        android:layout_alignParentBottom="true"
-        android:layout_alignEnd="@+id/password"
-        android:layout_marginBottom="11dp" />
-
     <EditText
         android:id="@+id/account_edit_text"
         android:layout_width="250dp"
@@ -94,6 +83,18 @@
         android:id="@+id/imageView"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true" />
+
+    <Button
+        android:text="小幫手"
+        android:textSize="18sp"
+        android:background="@drawable/button_shape"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button8"
+        android:layout_marginBottom="12dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="19dp" />
 
 
 </RelativeLayout>
