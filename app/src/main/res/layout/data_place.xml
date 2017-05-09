@@ -29,14 +29,6 @@
         android:layout_alignBottom="@+id/textView2"
         android:layout_centerHorizontal="true" />
 
-    <ListView
-        android:id="@+id/main_list"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_below="@+id/textView2"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="17dp" />
-
     <ImageButton
         android:src="@drawable/buttonadd"
         android:paddingRight="0dp"
@@ -47,5 +39,13 @@
         android:id="@+id/button2"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true" />
+
+    <ListView
+        android:id="@+id/main_list"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textView2" />
 
 </RelativeLayout>

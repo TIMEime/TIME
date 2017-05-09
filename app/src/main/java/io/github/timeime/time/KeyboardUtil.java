@@ -102,12 +102,15 @@ public class KeyboardUtil  {
                             ViewGroup.LayoutParams.WRAP_CONTENT,
                             ViewGroup.LayoutParams.WRAP_CONTENT);
                     ListView listView;
+                    TextView textView;
                     ArrayList<DB> mDBs = new ArrayList<DB>();
                     DBHelper dbHelper = new DBHelper(context, null, null, 1);
                     listView = (ListView) popupView.findViewById (R.id.list);
+                    textView=(TextView)popupView.findViewById(R.id.textView5);
                     mDBs = dbHelper.getAccountData(login_place.ACCOUNT);
                     ListAdapterDataName adapter = new ListAdapterDataName(context, mDBs);
                     listView.setAdapter(adapter);
+                    textView.setText(login_place.ACCOUNT);
                     AdapterView.OnItemClickListener itemListener = new AdapterView.OnItemClickListener() {
                         @Override
                         public void onItemClick(AdapterView<?> parent, View view,
@@ -122,7 +125,7 @@ public class KeyboardUtil  {
                     if(login_place.ACCOUNT.equals("")){
                         Toast.makeText(context,"請先登入帳號",Toast.LENGTH_SHORT).show();
                     }else{
-                        popupWindow.showAtLocation(keyboardView.getRootView(),Gravity.TOP,0,-100);
+                        popupWindow.showAtLocation(keyboardView.getRootView(),Gravity.TOP,0,0);
                     }
                     btnDismiss.setOnClickListener(new Button.OnClickListener(){
                         @Override

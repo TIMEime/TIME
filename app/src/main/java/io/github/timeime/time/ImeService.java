@@ -33,19 +33,19 @@ public class ImeService extends InputMethodService {
         mCandView.setService(this);
         return mCandView;
     }
-public void show(){
-    AlertDialog.Builder builder = new AlertDialog.Builder(this);
-    builder.setTitle("123");
-    builder.setMessage("123");
-    builder.setPositiveButton("123", new DialogInterface.OnClickListener() {
-        public void onClick(DialogInterface dialog, int whichButton) {
-            dialog.dismiss();
-        }
-    });
-    AlertDialog alert = builder.create();
-    alert.getWindow().setType(WindowManager.LayoutParams.TYPE_SYSTEM_ALERT);//設定提示框為系統提示框
-    alert.show();
-}
+    public void show(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("123");
+        builder.setMessage("123");
+        builder.setPositiveButton("123", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                dialog.dismiss();
+            }
+        });
+        AlertDialog alert = builder.create();
+        alert.getWindow().setType(WindowManager.LayoutParams.TYPE_SYSTEM_ALERT);//設定提示框為系統提示框
+        alert.show();
+    }
     public void findData(String name){
         try{
             String data=dbHelper.findData(name).getData();
