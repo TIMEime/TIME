@@ -7,6 +7,18 @@
     android:layout_height="match_parent">
 
     <EditText
+        android:id="@+id/account_edit_text"
+        android:layout_width="250dp"
+        android:layout_height="45dip"
+        android:background="@drawable/edittext"
+        android:textColorHint="#AAAAAA"
+        android:textSize="17dip"
+        android:singleLine="true"
+        android:hint="請輸入..."
+        android:layout_below="@+id/imageView"
+        android:layout_toEndOf="@+id/account" />
+    
+    <EditText
         android:id="@+id/password_edit_text"
         android:layout_width="250dp"
         android:layout_height="45dip"
@@ -32,17 +44,7 @@
         android:layout_alignBottom="@+id/login_button"
         android:layout_alignEnd="@+id/password_edit_text" />
 
-    <EditText
-        android:id="@+id/account_edit_text"
-        android:layout_width="250dp"
-        android:layout_height="45dip"
-        android:background="@drawable/edittext"
-        android:textColorHint="#AAAAAA"
-        android:textSize="17dip"
-        android:singleLine="true"
-        android:hint="請輸入..."
-        android:layout_below="@+id/imageView"
-        android:layout_toEndOf="@+id/account" />
+
 
     <TextView
         android:id="@+id/account"

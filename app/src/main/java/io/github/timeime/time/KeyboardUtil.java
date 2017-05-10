@@ -24,7 +24,7 @@ public class KeyboardUtil  {
 
     private KeyboardView keyboardView;
     private ImeService imeService;
-    private Keyboard keyboardSmallLetter, keyboardNumber, keyboardCapitalLetter;
+    private Keyboard keyboardSmallLetter, keyboardNumber, keyboardCapitalLetter,keyboardSpecial1,keyboardSpecial2;
     Context context;
 
     public KeyboardUtil(ImeService imeService1, KeyboardView keyboardView1) {
@@ -36,6 +36,8 @@ public class KeyboardUtil  {
         keyboardCapitalLetter = new Keyboard(imeService.getApplicationContext(), R.xml.keyboard_capital_letter);
         keyboardNumber = new Keyboard(imeService.getApplicationContext(), R.xml.keyboard_number);
         keyboardSmallLetter = new Keyboard(imeService.getApplicationContext(), R.xml.keyboard_small_letter);
+        keyboardSpecial1=new Keyboard(imeService.getApplicationContext(), R.xml.keyboard_special_1);
+        keyboardSpecial2=new Keyboard(imeService.getApplicationContext(), R.xml.keyboard_special_2);
         keyboardView.setKeyboard(keyboardSmallLetter);
         keyboardView.setEnabled(true);
         keyboardView.setPreviewEnabled(true);
@@ -76,8 +78,12 @@ public class KeyboardUtil  {
                 case Keyboard.KEYCODE_SHIFT:
                     if(keyboardView.getKeyboard() == keyboardCapitalLetter) {
                         keyboardView.setKeyboard(keyboardSmallLetter);
-                    }else {
+                    }else if(keyboardView.getKeyboard() == keyboardSmallLetter){
                         keyboardView.setKeyboard(keyboardCapitalLetter);
+                    }else if(keyboardView.getKeyboard() ==keyboardSpecial1){
+                        keyboardView.setKeyboard(keyboardSpecial2);
+                    }else{
+                        keyboardView.setKeyboard(keyboardSpecial1);
                     }
                     break;
                 case Keyboard.KEYCODE_DELETE:
@@ -90,160 +96,10 @@ public class KeyboardUtil  {
                     keyboardView.setKeyboard(keyboardNumber);
                     break;
                 case 10000:
+                    keyboardView.setKeyboard(keyboardSpecial1);
+                    break;
+                case -20000:
                     keyboardView.setKeyboard(keyboardSmallLetter);
-                    break;
-                case 1001:
-                    imeService.commitText("^__^");
-                    break;
-                case 1002:
-                    imeService.commitText("*_*");
-                    break;
-                case 1003:
-                    imeService.commitText("◎o◎");
-                    break;
-                case 1004:
-                    imeService.commitText("･ิω･ิ");
-                    break;
-                case 1005:
-                    imeService.commitText("TдT");
-                    break;
-                case 1006:
-                    imeService.commitText(": )");
-                    break;
-                case 1007:
-                    imeService.commitText(":-)");
-                    break;
-                case 1008:
-                    imeService.commitText(":-(");
-                    break;
-                case 1009:
-                    imeService.commitText("^O^");
-                    break;
-                case 1010:
-                    imeService.commitText("★");
-                    break;
-                case 1011:
-                    imeService.commitText("☆");
-                    break;
-                case 1012:
-                    imeService.commitText("●");
-                    break;
-                case 1013:
-                    imeService.commitText("○");
-                    break;
-                case 1014:
-                imeService.commitText("♂");
-                break;
-                case 1015:
-                    imeService.commitText("♀");
-                    break;
-                case 1016:
-                    imeService.commitText("〆");
-                    break;
-                case 1017:
-                    imeService.commitText("㐃");
-                    break;
-                case 1018:
-                    imeService.commitText("㊣");
-                    break;
-                case 1019:
-                    imeService.commitText("◎");
-                    break;
-                case 1020:
-                    imeService.commitText("®");
-                    break;
-                case 1021:
-                    imeService.commitText("©");
-                    break;
-                case 1022:
-                    imeService.commitText("™");
-                    break;
-                case 1023:
-                    imeService.commitText("╳");
-                    break;
-                case 1024:
-                    imeService.commitText("㐃");
-                    break;
-                case 1025:
-                    imeService.commitText("〒");
-                    break;
-                case 1026:
-                    imeService.commitText("①");
-                    break;
-                case 1027:
-                    imeService.commitText("②");
-                    break;
-                case 1028:
-                    imeService.commitText("③");
-                    break;
-                case 1029:
-                    imeService.commitText("④");
-                    break;
-                case 1030:
-                    imeService.commitText("⑤");
-                    break;
-                case 1031:
-                    imeService.commitText("⑥");
-                    break;
-                case 1032:
-                    imeService.commitText("⑦");
-                    break;
-                case 1033:
-                    imeService.commitText("⑧");
-                    break;
-                case 1034:
-                    imeService.commitText("⑨");
-                    break;
-                case 1035:
-                    imeService.commitText("∞");
-                    break;
-                case 1036:
-                    imeService.commitText("≒");
-                    break;
-                case 1037:
-                    imeService.commitText("≠");
-                    break;
-                case 1038:
-                    imeService.commitText("≦");
-                    break;
-                case 1039:
-                    imeService.commitText("≧");
-                    break;
-                case 1040:
-                    imeService.commitText("√");
-                    break;
-                case 1041:
-                    imeService.commitText("↗");
-                    break;
-                case 1042:
-                    imeService.commitText("↖");
-                    break;
-                case 1043:
-                    imeService.commitText("↘");
-                    break;
-                case 1044:
-                    imeService.commitText("↙");
-                    break;
-                case 1045:
-                    imeService.commitText("Ⅰ");
-                    break;
-                case 1046:
-                    imeService.commitText("Ⅱ");
-                    break;
-                case 1047:
-                    imeService.commitText("Ⅲ");
-                    break;
-                case 1048:
-                    imeService.commitText("Ⅳ");
-                    break;
-                case 1049:
-                    imeService.commitText("Ⅴ");
-                    break;
-                case 1050:
-                    imeService.commitText("Ⅵ");
-                    break;
-                case 1051:
-                    imeService.commitText("Ⅶ");
                     break;
                 case 113:
                     LayoutInflater layoutInflater
