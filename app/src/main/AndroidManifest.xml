@@ -26,10 +26,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-    <activity android:name=".MainActivity"/>
+        <activity android:name=".login_place" />
+        <activity android:name=".MainActivity"/>
         <activity android:name=".data_place" />
         <activity android:name=".signup_place" />
-        <activity android:name=".login_place" />
+
         <service
             android:name=".ImeService"
             android:permission="android.permission.BIND_INPUT_METHOD">

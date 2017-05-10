@@ -24,7 +24,7 @@ import android.os.Handler;
                     case GOTO_MAIN_ACTIVITY:
                         Intent intent = new Intent();
                         //將原本Activity的換成MainActivity
-                        intent.setClass(WelcomeActivity.this, MainActivity.class);
+                        intent.setClass(WelcomeActivity.this, login_place.class);
                         startActivity(intent);
                         finish();
                         break;
