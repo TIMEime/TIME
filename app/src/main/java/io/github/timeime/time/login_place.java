@@ -1,4 +1,3 @@
-//登入介面
 package io.github.timeime.time;
 
 import android.app.Activity;
@@ -8,8 +7,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
-import static android.R.attr.password;
 
 public class login_place extends Activity {
     static String ACCOUNT="";//存帳號的全域變數

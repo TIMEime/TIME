@@ -101,7 +101,7 @@ public class KeyboardUtil  {
                 case -20000:
                     keyboardView.setKeyboard(keyboardSmallLetter);
                     break;
-                case 113:
+                case 9999:
                     LayoutInflater layoutInflater
                             = (LayoutInflater)context
                             .getSystemService(LAYOUT_INFLATER_SERVICE);

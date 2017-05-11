@@ -13,6 +13,7 @@ public class signup_place extends Activity {
     private Button signButton,backButton;
     private EditText account,password,confirmPassword;
     public  DBHelper dbHelper = new DBHelper(this, null, null, 1);
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.signup_place);
@@ -48,6 +49,7 @@ public class signup_place extends Activity {
                 }
             }
         });
+
         backButton.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -57,8 +59,5 @@ public class signup_place extends Activity {
                 signup_place.this.finish();
             }
         });
-
 }
-
-
 }

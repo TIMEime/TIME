@@ -35,6 +35,7 @@ public class MainActivity extends Activity {
 
         accountLabel.setText(login_place.ACCOUNT);
 
+        //新增資料的按鈕事件
         addButton.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -49,6 +50,7 @@ public class MainActivity extends Activity {
             }
         });
 
+        //刪除資料的按鈕事件
         deleteButton.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -57,6 +59,8 @@ public class MainActivity extends Activity {
                 dataEditText.setText("");
             }
         });
+
+        //登出的按鈕事件
         logoutButton.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,6 +70,8 @@ public class MainActivity extends Activity {
                 ACCOUNT="";
             }
         });
+
+        //跳到資料存放列表的按鈕事件
         checkdataButton.setOnClickListener(new Button.OnClickListener(){
             @Override
             public void onClick(View v) {

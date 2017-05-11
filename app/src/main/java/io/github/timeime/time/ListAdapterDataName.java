@@ -10,7 +10,6 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class ListAdapterDataName extends BaseAdapter {
-
     private Context context;
     private static LayoutInflater inflater = null;
     private ArrayList<DB> mDBs;
@@ -33,7 +32,6 @@ public class ListAdapterDataName extends BaseAdapter {
         return 0;
     }
 
-    // create a new ImageView for each item referenced by the Adapter
     public View getView(int position, View convertView, ViewGroup parent) {
         View vi = convertView;
         vi = inflater.inflate(R.layout.item_list2, null);
