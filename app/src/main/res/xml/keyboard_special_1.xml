@@ -20,7 +20,7 @@
             android:keyEdgeFlags="left" android:keyLabel="★" />
         <Key android:codes="1011" android:keyLabel="☆" />
         <Key android:codes="1008" android:keyLabel=":-(" />
-        <Key android:codes="9999" android:keyBackground="@drawable/time" android:keyWidth="30%p" android:keyHeight="100dip" android:keyLabel="TIME" />
+        <Key android:codes="9999" android:keyBackground="@color/candidate_other" android:keyWidth="30%p" android:keyHeight="100dip" android:keyLabel="TIME" />
         <Key android:codes="1008" android:keyLabel=":-(" />
         <Key android:codes="1017" android:keyLabel="㐃" />
         <Key android:codes="1018" android:keyEdgeFlags="right"

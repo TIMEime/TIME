@@ -15,6 +15,7 @@ public class login_place extends Activity {
     public  DBHelper dbHelper = new DBHelper(this, null, null, 1);//開啟資料庫
 
     protected void onCreate(Bundle savedInstanceState) {
+        ACCOUNT="";
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_place);
         loginButton = (Button) findViewById(R.id.login_button);

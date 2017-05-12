@@ -11,60 +11,29 @@
     android:background="#DDDDDD">
 
 
-    <Button
-        android:text="登出"
-        android:textSize="18sp"
-        android:background="@drawable/button_shape"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/logout_button"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true" />
-
-    <Button
-        android:id="@+id/delete_button"
-        android:textSize="18sp"
-        android:text="刪除資料"
-        android:background="@drawable/button_shape"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="38dp"
-        android:layout_below="@+id/data_edit_text"
-        android:layout_toEndOf="@+id/add_button"
-        android:layout_marginTop="26dp" />
-
-    <Button
-        android:id="@+id/add_button"
-        android:textSize="18sp"
-        android:text="新增資料"
-        android:background="@drawable/button_shape"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="75dp"
-        android:layout_alignBaseline="@+id/delete_button"
-        android:layout_alignBottom="@+id/delete_button"
-        android:layout_alignParentStart="true" />
-
-    <Button
-        android:text="檢視資料"
-        android:textSize="18sp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/button_shape"
-        android:id="@+id/check_data_button"
-        android:layout_marginBottom="19dp"
-        android:layout_above="@+id/logout_button"
-        android:layout_alignParentEnd="true" />
-
     <TextView
-        android:background="#FFEE99"
+        android:background="#7A8B8B"
         android:id="@+id/account_label"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:textSize="25dp"
+        android:layout_height="70dp"
+        android:textSize="30dp"
         android:gravity="center"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true" />
+
+    <EditText
+        android:id="@+id/name_edit_text"
+        android:background="@drawable/edittext"
+        android:textColorHint="#AAAAAA"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:textSize="18dip"
+        android:singleLine="true"
+        android:hint="請輸入..."
+        android:layout_width="250dip"
+        android:layout_height="50dip"
+        android:layout_below="@+id/name"
+        android:layout_centerHorizontal="true" />
 
     <EditText
         android:id="@+id/data_edit_text"
@@ -90,19 +59,7 @@
         android:layout_below="@+id/account_label"
         android:layout_alignStart="@+id/name_edit_text" />
 
-    <EditText
-        android:id="@+id/name_edit_text"
-        android:background="@drawable/edittext"
-        android:textColorHint="#AAAAAA"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:textSize="18dip"
-        android:singleLine="true"
-        android:hint="請輸入..."
-        android:layout_width="250dip"
-        android:layout_height="50dip"
-        android:layout_below="@+id/name"
-        android:layout_centerHorizontal="true" />
+
 
     <TextView
         android:id="@+id/data"
@@ -112,6 +69,52 @@
         android:textSize="26sp"
         android:layout_marginTop="32dp"
         android:layout_below="@+id/name_edit_text"
+        android:layout_alignStart="@+id/data_edit_text" />
+
+    <Button
+        android:text="登出"
+        android:textSize="18sp"
+        android:background="@drawable/button_shape"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/logout_button"
+        android:layout_alignBaseline="@+id/check_data_button"
+        android:layout_alignBottom="@+id/check_data_button"
+        android:layout_alignStart="@+id/delete_button" />
+
+    <Button
+        android:id="@+id/delete_button"
+        android:textSize="18sp"
+        android:text="刪除資料"
+        android:background="@drawable/button_shape"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_alignBaseline="@+id/add_button"
+        android:layout_alignBottom="@+id/add_button"
+        android:layout_alignEnd="@+id/data_edit_text" />
+
+    <Button
+        android:text="檢視資料"
+        android:textSize="18sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_shape"
+        android:id="@+id/check_data_button"
+        android:layout_below="@+id/add_button"
+        android:layout_alignStart="@+id/add_button"
+        android:layout_marginTop="26dp" />
+
+    <Button
+        android:id="@+id/add_button"
+        android:textSize="18sp"
+        android:text="新增資料"
+        android:background="@drawable/button_shape"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:layout_marginStart="14dp"
+        android:layout_below="@+id/data_edit_text"
         android:layout_alignStart="@+id/data_edit_text" />
 
 

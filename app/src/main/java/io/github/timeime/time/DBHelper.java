@@ -10,8 +10,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 import java.util.ArrayList;
 
 public class DBHelper extends SQLiteOpenHelper {
-    private static final int DATABASE_VERSION = 3;// 資料庫版本，資料結構改變的時候要更改這個數字，通常是加一
-    private static final String DATABASE_NAME = "999.db";// 資料庫名稱
+    private static final int DATABASE_VERSION = 8;// 資料庫版本，資料結構改變的時候要更改這個數字，通常是加一
+    private static final String DATABASE_NAME = "4444444444444.db";// 資料庫名稱
 
     private static final String DATA_TABLE_NAME = "DATA_TABLE";//表格名稱
     private static final String DATA_ID_COLUMN = "_ID";//欄位名稱
@@ -34,16 +34,15 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         final String CREATE_DATA_TABLE = "CREATE TABLE " + DATA_TABLE_NAME + "("
-                + DATA_ID_COLUMN + " INTEGER PRIMARY KEY,"
-                + DATA_ACCOUNT_COLUMN + " TEXT,"
-                + DATA_NAME_COLUMN + " TEXT,"
-                + DATA_DATA_COLUMN +  " TEXT"
+                + DATA_ID_COLUMN + " INTEGER PRIMARY KEY NOT NULL,"
+                + DATA_ACCOUNT_COLUMN + " TEXT NOT NULL,"
+                + DATA_NAME_COLUMN + " TEXT NOT NULL,"
+                + DATA_DATA_COLUMN +  " TEXT NOT NULL"
                 + ")";
         final String CREATE_ACCOUNT_TABLE = "CREATE TABLE " + ACCOUNT_TABLE_NAME + "("
-                + ACCOUNT_ID_COLUMN + " INTEGER PRIMARY KEY,"
-                + ACCOUNT_ACCOUNT_COLUMN + " TEXT,"
-                + ACCOUNT_PASSWORD_COLUMN + " TEXT,"
-                + ACCOUNT_EMAIL_COLUMN + " TEXT"
+                + ACCOUNT_ID_COLUMN + " INTEGER PRIMARY KEY NOT NULL,"
+                + ACCOUNT_ACCOUNT_COLUMN + " TEXT NOT NULL,"
+                + ACCOUNT_PASSWORD_COLUMN + " TEXT NOT NULL"
                 + ")";
         db.execSQL(CREATE_DATA_TABLE);
         db.execSQL(CREATE_ACCOUNT_TABLE);

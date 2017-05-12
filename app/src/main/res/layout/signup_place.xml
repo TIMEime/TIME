@@ -27,18 +27,6 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true" />
 
-    <EditText
-        android:id="@+id/sign_account_edit"
-        android:layout_width="250dp"
-        android:layout_height="45dip"
-        android:background="@drawable/edittext"
-        android:textColorHint="#AAAAAA"
-        android:textSize="18dip"
-        android:singleLine="true"
-        android:hint="請輸入..."
-        android:layout_below="@+id/sign_account"
-        android:layout_alignStart="@+id/sign_password" />
-
     <TextView
         android:id="@+id/sign_account"
         android:text="輸入帳號:"
@@ -59,19 +47,6 @@
         android:layout_alignBaseline="@+id/back_button"
         android:layout_alignBottom="@+id/back_button"
         android:layout_alignEnd="@+id/sign_confirm_password_edit" />
-
-    <EditText
-        android:id="@+id/sign_password_edit"
-        android:layout_width="250dp"
-        android:layout_height="45dip"
-        android:background="@drawable/edittext"
-        android:textColorHint="#AAAAAA"
-        android:textSize="18dip"
-        android:singleLine="true"
-        android:hint="請輸入..."
-        android:password="true"
-        android:layout_below="@+id/sign_password"
-        android:layout_alignStart="@+id/sign_confirm_password" />
 
     <TextView
         android:id="@+id/sign_password"
@@ -104,5 +79,30 @@
         android:layout_marginTop="20dp"
         android:layout_below="@+id/sign_confirm_password_edit"
         android:layout_alignStart="@+id/sign_confirm_password_edit" />
+
+    <EditText
+        android:id="@+id/sign_password_edit"
+        android:layout_width="250dp"
+        android:layout_height="45dip"
+        android:background="@drawable/edittext"
+        android:textColorHint="#AAAAAA"
+        android:textSize="18dip"
+        android:singleLine="true"
+        android:hint="請輸入..."
+        android:password="true"
+        android:layout_below="@+id/sign_password"
+        android:layout_alignStart="@+id/sign_confirm_password" />
+
+    <EditText
+        android:id="@+id/sign_account_edit"
+        android:layout_width="250dp"
+        android:layout_height="45dip"
+        android:background="@drawable/edittext"
+        android:textColorHint="#AAAAAA"
+        android:textSize="18dip"
+        android:singleLine="true"
+        android:hint="請輸入..."
+        android:layout_below="@+id/sign_account"
+        android:layout_alignStart="@+id/sign_password" />
 
 </RelativeLayout>
