@@ -70,21 +70,10 @@
             android:layout_toStartOf="@+id/account_edit_text" />
 
         <Button
-            android:text="登入"
-            android:textSize="15sp"
-            android:background="@drawable/button_shape"
-            android:layout_width="70dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/login_button"
-            android:layout_marginTop="12dp"
-            android:layout_below="@+id/password_edit_text"
-            android:layout_alignStart="@+id/password_edit_text" />
-
-        <Button
             android:text="註冊"
             android:textSize="15sp"
             android:background="@drawable/button_shape"
-            android:layout_width="70dp"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:id="@+id/signup_button"
             android:layout_alignBaseline="@+id/login_button"
@@ -105,6 +94,17 @@
             android:layout_marginStart="12dp" />
 
 
+        <Button
+            android:text="登入"
+            android:textSize="15sp"
+            android:background="@drawable/button_shape"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/login_button"
+            android:layout_marginTop="17dp"
+            android:layout_below="@+id/password_edit_text"
+            android:layout_toStartOf="@+id/signup_button"
+            android:layout_marginEnd="33dp" />
 
         <Button
             android:text="小幫手"
@@ -115,7 +115,7 @@
             android:id="@+id/button8"
             android:layout_marginBottom="16dp"
             android:layout_alignParentBottom="true"
-            android:layout_alignStart="@+id/signup_button" />
+            android:layout_alignEnd="@+id/signup_button" />
     </RelativeLayout>
 
 

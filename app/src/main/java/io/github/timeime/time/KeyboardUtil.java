@@ -101,6 +101,67 @@ public class KeyboardUtil  {
                 case -20000:
                     keyboardView.setKeyboard(keyboardSmallLetter);
                     break;
+                case 1000:
+                imeService.commitText("TдT");
+                    break;
+                case 1001:
+                    imeService.commitText("^__^");
+                    break;
+                case 1002:
+                    imeService.commitText(":-(");
+                    break;
+                case 1003:
+                    imeService.commitText("◞‸◟");
+                    break;
+                case 1004:
+                    imeService.commitText(">∀<");
+                    break;
+                case 1005:
+                    imeService.commitText("・ε・");
+                    break;
+                case 1006:
+                    imeService.commitText("òロó");
+                    break;
+                case 1007:
+                    imeService.commitText("T^T");
+                    break;
+                case 1008:
+                    imeService.commitText("ꉺɷꉺ");
+                    break;
+                case 1009:
+                    imeService.commitText("^O^");
+                    break;
+                case 1010:
+                    imeService.commitText("★");
+                    break;
+                case 1011:
+                    imeService.commitText("☆");
+                    break;
+                case 1012:
+                    imeService.commitText("✿");
+                    break;
+                case 1014:
+                    imeService.commitText("❀");
+                    break;
+                case 1015:
+                    imeService.commitText("㐃");
+                    break;
+                case 1016:
+                    imeService.commitText("㊣");
+                    break;
+                case 1017:
+                    imeService.commitText("◎");
+                    break;
+                case 1018:
+                    imeService.commitText("╳");
+                    break;
+                case 1019:
+                    imeService.commitText("㐃");
+                    break;
+                case 1020:
+                    imeService.commitText("〒");
+                    break;
+
                 case 9999:
                     LayoutInflater layoutInflater
                             = (LayoutInflater)context
