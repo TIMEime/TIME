@@ -2,6 +2,7 @@
 package io.github.timeime.time;
 
 import android.content.Context;
+import android.content.Intent;
 import android.inputmethodservice.Keyboard;
 import android.inputmethodservice.KeyboardView;
 import android.inputmethodservice.KeyboardView.OnKeyboardActionListener;
@@ -102,7 +103,7 @@ public class KeyboardUtil  {
                     keyboardView.setKeyboard(keyboardSmallLetter);
                     break;
                 case 1000:
-                imeService.commitText("TдT");
+                    imeService.commitText("TдT");
                     break;
                 case 1001:
                     imeService.commitText("^__^");
@@ -161,7 +162,6 @@ public class KeyboardUtil  {
                 case 1020:
                     imeService.commitText("〒");
                     break;
-
                 case 9999:
                     LayoutInflater layoutInflater
                             = (LayoutInflater)context
@@ -194,6 +194,8 @@ public class KeyboardUtil  {
                     Button btnDismiss = (Button)popupView.findViewById(R.id.dismiss);
                     if(login_place.ACCOUNT.equals("")){
                         Toast.makeText(context,"請先登入帳號",Toast.LENGTH_SHORT).show();
+                        Intent intent = context.getPackageManager().getLaunchIntentForPackage("io.github.timeime.time");
+                        context.startActivity(intent);
                     }else{
                         popupWindow.showAtLocation(keyboardView.getRootView(),Gravity.TOP,0,0);
                     }

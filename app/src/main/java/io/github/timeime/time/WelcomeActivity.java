@@ -10,7 +10,7 @@ import android.os.Handler;
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.welcome_place);
-            mHandler.sendEmptyMessageDelayed(GOTO_MAIN_ACTIVITY, 2000); //2秒跳轉
+            mHandler.sendEmptyMessageDelayed(GOTO_MAIN_ACTIVITY, 1100); //2秒跳轉
         }
 
         private static final int GOTO_MAIN_ACTIVITY = 0;
