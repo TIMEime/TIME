@@ -36,8 +36,7 @@ public class signup_place extends Activity {
                         password.setText("");
                         confirmPassword.setText("");
                     }else {
-                        AccountDB mDB = new AccountDB(account.getText().toString(), password.getText().toString()
-                                );
+                        AccountDB mDB = new AccountDB(account.getText().toString(), password.getText().toString());
                         dbHelper.addAccount(mDB);
                         i = 1;
                     }

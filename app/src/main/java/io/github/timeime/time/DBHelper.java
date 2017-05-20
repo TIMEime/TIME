@@ -9,9 +9,11 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import java.util.ArrayList;
 
+import static io.github.timeime.time.login_place.ACCOUNT;
+
 public class DBHelper extends SQLiteOpenHelper {
-    private static final int DATABASE_VERSION = 8;// 資料庫版本，資料結構改變的時候要更改這個數字，通常是加一
-    private static final String DATABASE_NAME = "4444444444444.db";// 資料庫名稱
+    private static final int DATABASE_VERSION = 2;// 資料庫版本，資料結構改變的時候要更改這個數字，通常是加一
+    private static final String DATABASE_NAME = "MyTime.db";// 資料庫名稱
 
     private static final String DATA_TABLE_NAME = "DATA_TABLE";//表格名稱
     private static final String DATA_ID_COLUMN = "_ID";//欄位名稱
@@ -23,7 +25,6 @@ public class DBHelper extends SQLiteOpenHelper {
     private static final String ACCOUNT_ID_COLUMN = "_ID";//欄位名稱
     private static final String ACCOUNT_ACCOUNT_COLUMN = "ACCOUNT";//欄位名稱
     private static final String ACCOUNT_PASSWORD_COLUMN= "PASSWORD";//欄位名稱
-    private static final String ACCOUNT_EMAIL_COLUMN= "EMAIL";//欄位名稱
 
     //建構子，都是一樣的格式不用改他
     public DBHelper(Context context, String name, CursorFactory factory,int version) {
@@ -99,9 +100,9 @@ public class DBHelper extends SQLiteOpenHelper {
         return mDBs;
     }
 
-    //找尋某筆資料
+    //找尋資料
     public DB findData(String name) {
-        String query = "Select * FROM " + DATA_TABLE_NAME + " WHERE " + DATA_NAME_COLUMN + " =  \"" + name + "\"";
+        String query = "Select * FROM " + DATA_TABLE_NAME + " WHERE " + DATA_NAME_COLUMN + " =  \"" + name + "\""+" and "+DATA_ACCOUNT_COLUMN+" =  \""+ACCOUNT+"\"";
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(query, null);
         DB mDB = new DB();
@@ -116,8 +117,6 @@ public class DBHelper extends SQLiteOpenHelper {
         db.close();
         return mDB;
     }
-
-    //驗證密碼
     public boolean findPassword(String account,String password){
         int flag=0;
         String query = "Select * FROM " + ACCOUNT_TABLE_NAME + " WHERE " + ACCOUNT_ACCOUNT_COLUMN + " =  \"" + account + "\"";
@@ -142,24 +141,7 @@ public class DBHelper extends SQLiteOpenHelper {
         }
     }
 
-    //看資料名稱是否重複
-    public boolean findDataExists(String name){
-        int flag=0;
-        String query = "Select * FROM " + DATA_TABLE_NAME + " WHERE " + DATA_NAME_COLUMN + " =  \"" + name + "\"";
-        SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery(query, null);
-        if (cursor.getCount()==0) {
-            flag=0;
-        }else{
-            flag=1;
-        }
-        db.close();
-        if(flag==1){
-            return false;
-        }else{
-            return true;
-        }
-    }
+
 
     //找尋帳號是否存在
     public boolean findAccount(String account){
@@ -181,20 +163,48 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     // 刪除資料
-    public boolean deleteData(String data) {
+    public boolean deleteData(String name) {
         boolean result = false;
-        String query = "Select * FROM " + DATA_TABLE_NAME + " WHERE " + DATA_NAME_COLUMN + " =  \"" + data + "\"";
+        int flag=0;
+        String query = "Select * FROM " + DATA_TABLE_NAME + " WHERE " + DATA_ACCOUNT_COLUMN + " =  \"" + ACCOUNT + "\"";
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(query, null);
         DB mDB = new DB();
         if (cursor.moveToFirst()) {
             mDB.setID(Integer.parseInt(cursor.getString(0)));
-            db.delete(DATA_TABLE_NAME, DATA_ID_COLUMN + " = ?",new String[] { String.valueOf(mDB.getID()) });
+            mDB.setAccount(ACCOUNT);
+            mDB.setName(name);
+            db.delete(DATA_TABLE_NAME, DATA_NAME_COLUMN + " = ? "+" AND "+DATA_ACCOUNT_COLUMN+" = ?",new String[] {String.valueOf(mDB.getName()),String.valueOf(mDB.getAccount())});
             cursor.close();
             result = true;
         }
         db.close();
         return result;
+    }
+
+    public boolean findDataExists(String name){
+        int flag=0;
+        String query = "Select * FROM " + DATA_TABLE_NAME + " WHERE " + DATA_ACCOUNT_COLUMN + " =  \"" + ACCOUNT + "\"";
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(query, null);
+        DB mDB = new DB();
+        int rows_num = cursor.getCount();
+        if(rows_num != 0) {
+            cursor.moveToFirst();
+            for(int i=0; i<rows_num; i++) {
+                mDB.setAccount(ACCOUNT);
+                mDB.setName(cursor.getString(2));
+                if(mDB.getName().equals(name)){
+                    flag=1;
+                }
+                cursor.moveToNext();
+            }
+        }
+        if (flag == 1) {
+            return true;
+        }else{
+            return false;
+        }
     }
 }
 

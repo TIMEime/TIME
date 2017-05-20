@@ -42,7 +42,7 @@ public class MainActivity extends Activity {
                 if(nameEditText.getText().toString().equals("") || dataEditText.getText().toString().equals("")){
                     Toast.makeText(MainActivity.this,"資料名稱與內容不可為空值",Toast.LENGTH_SHORT).show();
                 }
-                else if(dbHelper.findDataExists(nameEditText.getText().toString())) {
+                else if(!dbHelper.findDataExists(nameEditText.getText().toString())) {
                     DB mDB = new DB(nameEditText.getText().toString(), dataEditText.getText().toString(), ACCOUNT);
                     dbHelper.addData(mDB);
                     nameEditText.setText("");
@@ -59,7 +59,7 @@ public class MainActivity extends Activity {
             public void onClick(View view) {
                 if(nameEditText.getText().toString().equals("") ){
                     Toast.makeText(MainActivity.this,"資料名稱不可為空值",Toast.LENGTH_SHORT).show();
-                }else if(!dbHelper.findDataExists(nameEditText.getText().toString())) {
+                }else if(dbHelper.findDataExists(nameEditText.getText().toString()) ) {
                     dbHelper.deleteData(nameEditText.getText().toString());
                     nameEditText.setText("");
                     dataEditText.setText("");
