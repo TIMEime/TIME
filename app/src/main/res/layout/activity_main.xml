@@ -8,11 +8,11 @@
     android:paddingRight="0dp"
     android:paddingTop="0dp"
     tools:context=".MainActivity"
-    android:background="@drawable/activity_view">
+    android:background="@drawable/signup_view">
 
 
     <TextView
-        android:background="#7A8B8B"
+        android:background="#5599FF"
         android:id="@+id/account_label"
         android:layout_width="fill_parent"
         android:layout_height="70dp"
@@ -54,6 +54,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="資料名稱: "
+        android:textColor="#FF000000"
         android:textSize="26sp"
         android:layout_marginTop="47dp"
         android:layout_below="@+id/account_label"
@@ -66,6 +67,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="資料內容: "
+        android:textColor="#FF000000"
         android:textSize="26sp"
         android:layout_marginTop="32dp"
         android:layout_below="@+id/name_edit_text"

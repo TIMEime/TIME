@@ -8,10 +8,10 @@
     android:paddingRight="0dp"
     android:paddingTop="0dp"
     tools:context=".data_place"
-    android:background="#DDDDDD">
+    android:background="@drawable/signup_view">
 
     <TextView
-        android:background="#7A8B8B"
+        android:background="#5599FF"
         android:id="@+id/account_label"
         android:layout_width="fill_parent"
         android:layout_height="70dp"
@@ -19,7 +19,8 @@
         android:gravity="center"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
-        android:text="資料列表" />
+        android:text="資料列表"
+        android:textColor="#FF000000"/>
 
     <ImageButton
         android:paddingTop="10dp"
@@ -41,7 +42,8 @@
         android:textSize="24sp"
         android:layout_alignBaseline="@+id/textView"
         android:layout_alignBottom="@+id/textView"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:textColor="#FF000000"/>
 
     <TextView
         android:id="@+id/textView"
@@ -52,7 +54,8 @@
         android:textSize="24sp"
         android:layout_marginTop="39dp"
         android:layout_below="@+id/account_label"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:textColor="#FF000000"/>
 
     <ListView
         android:id="@+id/main_list"

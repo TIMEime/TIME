@@ -69,17 +69,6 @@
             android:layout_alignBottom="@+id/password_edit_text"
             android:layout_toStartOf="@+id/account_edit_text" />
 
-        <Button
-            android:text="註冊"
-            android:textSize="15sp"
-            android:background="@drawable/button_shape"
-            android:layout_width="80dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/signup_button"
-            android:layout_alignBaseline="@+id/login_button"
-            android:layout_alignBottom="@+id/login_button"
-            android:layout_alignEnd="@+id/password_edit_text" />
-
         <TextView
             android:textColor="@android:color/black"
             android:id="@+id/account"
@@ -95,27 +84,37 @@
 
 
         <Button
-            android:text="登入"
-            android:textSize="15sp"
-            android:background="@drawable/button_shape"
-            android:layout_width="80dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/login_button"
-            android:layout_marginTop="17dp"
-            android:layout_below="@+id/password_edit_text"
-            android:layout_toStartOf="@+id/signup_button"
-            android:layout_marginEnd="33dp" />
-
-        <Button
             android:text="小幫手"
             android:textSize="15sp"
             android:background="@drawable/button_shape"
             android:layout_width="70dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/button8"
+            android:layout_height="40dp"
+            android:id="@+id/help_button"
             android:layout_marginBottom="16dp"
             android:layout_alignParentBottom="true"
             android:layout_alignEnd="@+id/signup_button" />
+
+        <Button
+            android:text="登入"
+            android:textSize="15sp"
+            android:background="#FFA488"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:id="@+id/login_button"
+            android:layout_marginTop="18dp"
+            android:layout_below="@+id/password_edit_text"
+            android:layout_alignStart="@+id/signup_button" />
+
+        <Button
+            android:text="註冊"
+            android:textSize="15sp"
+            android:background="#00BBFF"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:id="@+id/signup_button"
+            android:layout_below="@+id/login_button"
+            android:layout_alignEnd="@+id/password_edit_text"
+            android:layout_marginTop="25dp" />
     </RelativeLayout>
 
 

@@ -99,7 +99,7 @@ public class DBHelper extends SQLiteOpenHelper {
         return mDBs;
     }
 
-    //找尋資料
+    //找尋某筆資料
     public DB findData(String name) {
         String query = "Select * FROM " + DATA_TABLE_NAME + " WHERE " + DATA_NAME_COLUMN + " =  \"" + name + "\"";
         SQLiteDatabase db = this.getWritableDatabase();
@@ -116,6 +116,8 @@ public class DBHelper extends SQLiteOpenHelper {
         db.close();
         return mDB;
     }
+
+    //驗證密碼
     public boolean findPassword(String account,String password){
         int flag=0;
         String query = "Select * FROM " + ACCOUNT_TABLE_NAME + " WHERE " + ACCOUNT_ACCOUNT_COLUMN + " =  \"" + account + "\"";
@@ -140,6 +142,7 @@ public class DBHelper extends SQLiteOpenHelper {
         }
     }
 
+    //看資料名稱是否重複
     public boolean findDataExists(String name){
         int flag=0;
         String query = "Select * FROM " + DATA_TABLE_NAME + " WHERE " + DATA_NAME_COLUMN + " =  \"" + name + "\"";

@@ -38,7 +38,7 @@ public class KeyboardUtil  {
         keyboardSmallLetter = new Keyboard(imeService.getApplicationContext(), R.xml.keyboard_small_letter);
         keyboardSpecial1=new Keyboard(imeService.getApplicationContext(), R.xml.keyboard_special_1);
         keyboardSpecial2=new Keyboard(imeService.getApplicationContext(), R.xml.keyboard_special_2);
-        keyboardView.setKeyboard(keyboardSmallLetter);
+        keyboardView.setKeyboard(keyboardSpecial1);
         keyboardView.setEnabled(true);
         keyboardView.setPreviewEnabled(true);
     }

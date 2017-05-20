@@ -19,6 +19,7 @@ public class ImeService extends InputMethodService {
     private KeyboardView mkeyView;
     private CandidateView mCandView;
     public  DBHelper dbHelper = new DBHelper(this, null, null, 1);
+
     @Override
     public View onCreateInputView() {
         View mkeyView = LayoutInflater.from(this).inflate(

@@ -1,16 +1,18 @@
 package io.github.timeime.time;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import android.app.AlertDialog;
 
 public class login_place extends Activity {
     static String ACCOUNT="";//存帳號的全域變數
-    private Button loginButton,signupButton;//登入and註冊的按鈕
+    private Button loginButton,signupButton,helpButton;//登入and註冊的按鈕
     private EditText accountEdit,passwordEdit;//帳號and密碼的輸入框
     public  DBHelper dbHelper = new DBHelper(this, null, null, 1);//開啟資料庫
 
@@ -22,6 +24,7 @@ public class login_place extends Activity {
         signupButton = (Button) findViewById(R.id.signup_button);
         accountEdit=(EditText) findViewById(R.id.account_edit_text);
         passwordEdit=(EditText) findViewById(R.id.password_edit_text);
+        helpButton=(Button) findViewById(R.id.help_button);
 
         //註冊按鈕按下的事件
         signupButton.setOnClickListener(new Button.OnClickListener() {
@@ -58,5 +61,24 @@ public class login_place extends Activity {
                 }
             }
         });
+
+        helpButton.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                help();
+            }
+        });
+    }
+
+    private void help() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("請先註冊帳號後登入，帳號可為任何字元，所以也可以當作資料類型的名稱，用以區分存入的資料。登入後輸入資料名稱與資料內容存入，然後開啟TIME輸入法的鍵盤方可使用。")
+                .setNegativeButton("確定", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                });
+        AlertDialog about_dialog = builder.create();
+        about_dialog.show();
     }
 }

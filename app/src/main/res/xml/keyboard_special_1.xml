@@ -20,7 +20,7 @@
             android:keyEdgeFlags="left" android:keyLabel="★" />
         <Key android:codes="1011" android:keyLabel="☆" />
         <Key android:codes="1012" android:keyLabel="✿" />
-        <Key android:codes="9999" android:keyBackground="@color/candidate_other" android:keyWidth="30%p" android:keyHeight="100dip" android:keyLabel="TIME" />
+        <Key android:codes="9999" android:keyBackground="@drawable/back" android:keyWidth="30%p" android:keyHeight="100dip" android:keyLabel="TIME" />
         <Key android:codes="1014" android:keyLabel="❀" />
         <Key android:codes="1015" android:keyLabel="㐃" />
         <Key android:codes="1016" android:keyEdgeFlags="right"
@@ -29,14 +29,14 @@
     <Row>
         <Key android:keyWidth="14.999998%p" android:codes="-1"
             android:keyEdgeFlags="left" android:isModifier="true"
-            android:isSticky="true" android:keyIcon="@drawable/sym_keyboard_shift" />
+            android:isSticky="true" android:keyIcon="@drawable/sym_keyboard_shift2" />
         <Key android:codes="1017" android:keyLabel="◎" />
         <Key android:codes="1018" android:keyLabel="╳" />
         <Key android:codes="1019" android:horizontalGap="30.000008%p" android:keyLabel="㐃" />
         <Key android:codes="1020" android:keyLabel="〒" />
         <Key android:keyWidth="14.999998%p" android:codes="-5"
             android:keyEdgeFlags="right" android:isRepeatable="true"
-            android:keyIcon="@drawable/sym_keyboard_delete" />
+            android:keyIcon="@drawable/sym_keyboard_delete2" />
     </Row>
     <Row android:rowEdgeFlags="bottom">
         <Key android:keyWidth="20.000004%p" android:codes="-20000"
