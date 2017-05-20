@@ -39,7 +39,10 @@ public class MainActivity extends Activity {
         addButton.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(dbHelper.findDataExists(nameEditText.getText().toString())) {
+                if(nameEditText.getText().toString().equals("") || dataEditText.getText().toString().equals("")){
+                    Toast.makeText(MainActivity.this,"資料名稱與內容不可為空值",Toast.LENGTH_SHORT).show();
+                }
+                else if(dbHelper.findDataExists(nameEditText.getText().toString())) {
                     DB mDB = new DB(nameEditText.getText().toString(), dataEditText.getText().toString(), ACCOUNT);
                     dbHelper.addData(mDB);
                     nameEditText.setText("");
@@ -54,9 +57,15 @@ public class MainActivity extends Activity {
         deleteButton.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
-                dbHelper.deleteData(nameEditText.getText().toString());
-                nameEditText.setText("");
-                dataEditText.setText("");
+                if(nameEditText.getText().toString().equals("") ){
+                    Toast.makeText(MainActivity.this,"資料名稱不可為空值",Toast.LENGTH_SHORT).show();
+                }else if(!dbHelper.findDataExists(nameEditText.getText().toString())) {
+                    dbHelper.deleteData(nameEditText.getText().toString());
+                    nameEditText.setText("");
+                    dataEditText.setText("");
+                }else{
+                    Toast.makeText(MainActivity.this,"找不到此資料",Toast.LENGTH_SHORT).show();
+                }
             }
         });
 

@@ -26,7 +26,11 @@ public class signup_place extends Activity {
         signButton.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(dbHelper.findAccount(account.getText().toString())) {
+                if(account.getText().toString().equals("") || confirmPassword.getText().toString().equals("")
+                        || password.getText().toString().equals("")){
+                    Toast.makeText(signup_place.this,"輸入的帳號與密碼不可為空值", Toast.LENGTH_SHORT).show();
+                }
+                else if(dbHelper.findAccount(account.getText().toString())) {
                     if(!password.getText().toString().equals(confirmPassword.getText().toString())){
                         Toast.makeText(signup_place.this,"密碼與確認密碼不符", Toast.LENGTH_SHORT).show();
                         password.setText("");
